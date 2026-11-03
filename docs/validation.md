@@ -4,7 +4,7 @@ This document records prototype readiness, not production readiness or validated
 
 ## Acceptance coverage
 
-- 61 public destinations with server-rendered copy and real navigation links; today profile and non-today related content.
+- 61 public destinations with server-rendered copy and real navigation links; interactive hero characteristics card and related content on every period.
 - Exactly 12 directory signs and 11 alternatives per detail; sign/period navigation preserves context.
 - Finder uses a single editorial range table, accepts 29 February, rejects impossible days, validates month changes, shows an explicit result CTA, and keeps raw input local.
 - Fixed configurable date, Jakarta timezone, separate forecast validity and publication/update timestamps. Expired/draft content is hidden rather than relabelled.
@@ -18,7 +18,7 @@ This document records prototype readiness, not production readiness or validated
 - Production build: passed.
 - TypeScript and ESLint: passed.
 - Unit tests: 56 passed.
-- Browser tests: 15 passed, including all 61 route responses and true HTTP 404.
+- Browser tests: 19 passed, including all 61 route responses and true HTTP 404.
 - Browser console exceptions and missing image checks: none.
 - Body overflow: none at 360, 390, 768, 1024 and 1440px on directory and detail templates.
 - Contrast samples: body 9.03:1, purple on blush 4.84:1, metadata on white 5.44:1, white on purple 5.28:1, large pink headings on blush 4.18:1. Small breadcrumb pink uses a darker accessible ink.
@@ -27,7 +27,7 @@ This document records prototype readiness, not production readiness or validated
 
 Unit suite covers all 24 sign boundaries, every valid day of a leap-year calendar, invalid/empty input, year wrap, Jakarta midnight, Monday–Sunday boundaries, leap/non-leap months, year transitions, fixture identities, publication ordering, status filtering and article order.
 
-Browser suite covers all 61 responses and canonicals, HTTP 404, deep links and refresh, Back/Forward, finder, period preservation, states and retry, empty feeds, carousel/dialog, event privacy, image loading, console exceptions, five viewport widths and a text-resize interaction smoke test. The resize smoke test is not a comprehensive assistive-technology certification.
+Browser suite covers all 61 responses and canonicals, HTTP 404, deep links and refresh, Back/Forward, finder, period preservation, states and retry, empty feeds, carousel/dialog, latest-card accordion hover/focus and touch behavior, event privacy, image loading, console exceptions, five viewport widths and a text-resize interaction smoke test. The resize smoke test is not a comprehensive assistive-technology certification.
 
 Visual capture covers directory at 1280 CSS px, detail at 1296 CSS px, and both at 390px. Source normalization and deviations are in `../design-qa.md`.
 

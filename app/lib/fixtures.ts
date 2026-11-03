@@ -30,8 +30,8 @@ export async function getForecast(slug: string, period: Period, scenario: Scenar
 }
 const articleData = [
  ['transit','Transit Planet Minggu Ini: Waktunya 3 Zodiak Ini Mengambil Keputusan Karier Krusial','2026-10-27','Pergerakan Merkurius dan Mars membawa dinamika baru dalam komunikasi kerja dan negosiasi finansial bagi Gemini, Virgo, dan Capricorn. Saatnya meninjau kembali batasan profesionalmu.','latest','/assets/article-transit.png'],
- ['bulan','Energi Bulan Purnama di Taurus: Refleksi Stabilitas dan Self-Care Finansial','2026-10-26','','latest',''],
- ['asmara','Prediksi Asmara Akhir Bulan: Siapa yang Siap Membuka Hati Kembali?','2026-10-25','','latest',''],
+ ['bulan','Energi Bulan Purnama di Taurus: Refleksi Stabilitas dan Self-Care Finansial','2026-10-26','Ketahui bagaimana transit bulan purnama mengajak zodiak elemen tanah dan air memperlambat ritme dan menata kembali prioritas batin.','latest','/assets/homepage-18-energi-bulan-purnama-di-taurus.png'],
+ ['asmara','Prediksi Asmara Akhir Bulan: Siapa yang Siap Membuka Hati Kembali?','2026-10-25','Aspek harmonis antara Venus dan Jupiter menghadirkan kejelasan untuk hubungan baru maupun percakapan mendalam bagi pasangan.','latest','/assets/homepage-19-prediksi-asmara-akhir-bulan.png'],
  ['elemen','Mengenal Elemen Api, Tanah, Udara, dan Air: Mengapa Peta Kelahiranmu Begitu Unik?','2026-10-24','Pahami bagaimana perpaduan elemen dalam zodiak membentuk caramu merespons stres, menentukan ritme istirahat, dan membangun relasi bermakna.','evergreen','/assets/article-elements.png'],
  ['hubungan','Panduan Cocok Logika vs Perasaan: Dinamika Hubungan Pasangan Zodiak Berbeda Elemen','2026-10-22','Ketika zodiak berelemen Air bertemu Api atau Udara bertemu Tanah, ini rahasia menjaga harmoni komunikasi tanpa kehilangan jati diri.','evergreen','/assets/article-compatibility.png'],
  ['ritual','Ritual Self-Care yang Paling Pas Berdasarkan Elemen Zodiakmu','2026-10-20','Mulai dari journaling reflektif hingga grounding walk, sesuaikan rutinitas pemulihan energimu dengan ritme astrologi tubuhmu.','evergreen','/assets/article-self-care.png'],
