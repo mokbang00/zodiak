@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="id" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="web_standard" name="shell-type">
+<title>Zodiak &amp; Horoskop Harian — kumparanWOMAN</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&amp;family=DM+Serif+Display:ital@0;1&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {darkMode: "class", theme: {extend: {colors: {"blush-base": "#FDF2F4", "blush-soft": "#FFF0F3", "blush-paper": "#FAF0F2", "brand-teal": "#00B1B1", "brand-teal-dark": "#008B8B", "brand-magenta": "#DC2C67", "brand-pink": "#FFACFC", "brand-violet": "#8C56A3", "ink-dark": "#1D1B20", "ink-body": "#3A3530", "ink-muted": "#756F68", "paper-border": "#EADCDD", "tertiary-fixed": "#f7d8ff", "on-primary": "#ffffff", "on-secondary-container": "#fffbff", secondary: "#b7004e", "on-surface": "#1e1b17", "inverse-primary": "#51dad9", "outline-variant": "#bbc9c8", "tertiary-fixed-dim": "#eab2ff", "surface-container-highest": "#e9e1da", error: "#ba1a1a", "on-tertiary": "#ffffff", "primary-fixed": "#72f6f6", tertiary: "#7d4994", "error-container": "#ffdad6", "on-primary-fixed-variant": "#004f4f", outline: "#6c7a79", primary: "#006a6a", "on-primary-fixed": "#002020", "on-secondary-fixed-variant": "#90003c", "on-background": "#1e1b17", "on-error": "#ffffff", surface: "#fff8f3", "secondary-fixed-dim": "#ffb1c0", "on-tertiary-fixed": "#320047", "primary-container": "#00b1b1", "secondary-fixed": "#ffd9df", "surface-variant": "#e9e1da", "on-tertiary-container": "#511e68", "surface-bright": "#fff8f3", "on-secondary": "#ffffff", "on-error-container": "#93000a", "surface-container-high": "#efe7e0", "secondary-container": "#da2a66", "surface-tint": "#006a6a", "on-primary-container": "#003d3d", "tertiary-container": "#c389da", "inverse-on-surface": "#f7efe8", "surface-container": "#f4ede6", "on-surface-variant": "#3c4949", "surface-container-low": "#faf2eb", "primary-fixed-dim": "#51dad9", "surface-dim": "#e0d9d2", "inverse-surface": "#33302b", background: "#fff8f3", "on-tertiary-fixed-variant": "#64307b", "surface-container-lowest": "#ffffff", "on-secondary-fixed": "#3f0016"}, fontFamily: {"serif-display": ["'DM Serif Display'", "Georgia", "serif"], editorial: ["Domine", "serif"], sans: ["Montserrat", "sans-serif"], mono: ["'Space Mono'", "monospace"], headline: ["DM Serif Display"], display: ["DM Serif Display"], body: ["Montserrat"], label: ["Space Mono"]}, fontSize: {}, borderRadius: {DEFAULT: "0.125rem", lg: "0.25rem", xl: "0.5rem", full: "0.75rem"}}}}
+  </script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #FDF2F4;
+        color: #1D1B20;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    .text-outline-stroke {
+      -webkit-text-stroke: 1.5px #1D1B20;
+      color: transparent;
+    }
+    .zodiac-item:hover .zodiac-img {
+      transform: translateY(-8px) scale(1.08) rotate(-2deg);
+      filter: drop-shadow(0 14px 20px rgba(220, 44, 103, 0.18));
+    }
+    .torn-top {
+      mask-image: radial-gradient(circle at 10px -5px, transparent 12px, white 13px);
+      mask-size: 24px 100%;
+    }
+    @keyframes sway {
+      0%, 100% {
+        transform: rotate(-3deg) translateY(0);
+      }
+      50% {
+        transform: rotate(3deg) translateY(-4px);
+      }
+    }
+    .animate-sway {
+      animation: sway 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-blush-base font-sans text-ink-body antialiased selection:bg-brand-pink/40 selection:text-ink-dark" style="background-color: rgb(253, 242, 248);">
+<!-- Main kumparanWOMAN Navigation Header -->
+
+<style>
+  body, p, .font-sans {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+  }
+  h1, h2, h3, .font-serif-display, .font-editorial {
+    font-family: 'DM Serif Display', Georgia, serif !important;
+  }
+  label, .font-mono, .stamp-label, [for='birthDay'], [for='birthMonth'], button, .accordion-date, input, select {
+    font-family: 'DM Sans', sans-serif !important;
+  }
+</style><main class="w-full bg-blush-base min-h-screen pt-4" style="background-color: rgb(253, 242, 248);">
+<!-- ASYMMETRIC INTRODUCTION (Inspired directly by CHANI's Daily Horoscopes layout) -->
+<section class="w-full max-w-7xl mx-auto px-10 py-10 relative">
+<!-- Decorative playful tactile collage accents -->
+
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+<!-- Left Side: Expressive CHANI-Style Title & Editorial Text -->
+<div class="lg:col-span-7 flex flex-col relative"><div class="relative flex flex-col items-start"><div class="relative inline-block"><h1 class="font-serif-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] tracking-tight select-none"><span class="block italic font-normal" style="-webkit-text-stroke: 1.5px rgb(220, 44, 103); color: transparent;">Ramalan</span><span class="block font-bold text-[#dc2c67]">Zodiak Hari Ini</span></h1><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuApG4G8bpAlENeDFIoPPY8labHeH8efTynxDZDLja3yRwW22kSNAUoXtO4ptqRnFJSm6QeLoOOKxDM45C9hR3u8Sv-y1SDYdSo-MGdQxU9Pw3jV5ZsxCJ0pJZgUgPJSqp6QkKJYE2LZQb15ByLervK23n5IHP71MdqkmfegD4SkxsKIUfF8K8FrvLGvVQjmkEBeFpY-_Huzr2y-NyiNBdZyKLWRhsfIAwDpy1Y0G7QZowpSSpXgJta4rA" alt="Purple Sparkle Star" class="absolute -right-12 sm:-right-16 top-1/2 -translate-y-4 w-12 sm:w-16 h-auto object-contain pointer-events-none select-none drop-shadow-xs"></div><div class="w-52 sm:w-64 h-4 text-[#8C56A3] my-4"><svg class="w-full h-full stroke-current stroke-2" fill="none" viewBox="0 0 200 12"><path d="M2 6C15 1 25 11 38 6C51 1 61 11 74 6C87 1 97 11 110 6C123 1 133 11 146 6C159 1 169 11 182 6C189 3 194 8 198 6" stroke-linecap="round"></path></svg></div><p class="font-sans text-base sm:text-lg text-ink-body max-w-xl leading-relaxed mt-2">Cari tahu zodiakmu dan persiapkan hari-harimu lewat ramalan harian, mingguan, bulanan, dan tahunan! Temukan pesan semesta yang membumi, penuh cinta, dan memberdayakan setiap langkahmu.</p></div></div>
+<!-- Right Side: Editorial Note / Tactile Paper Card Slip -->
+<div class="lg:col-span-5 relative mt-4 lg:mt-0" id="finder"><div class="absolute -top-4 -left-3 sm:-left-4 w-36 sm:w-40 h-10 -rotate-2 z-20 pointer-events-none select-none drop-shadow-sm"><img alt="Washi Tape" class="w-full h-full object-contain pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx0Nn0NJpiZrsjDsmkd1iIXjc_vFjif8F4PqORCsNYDNzxAo5lhMrJAgKCS7twBpYpHn9SleFHhqncsJO__gGv3fgseM5Fx5zPogV2DgaGAXrKGQ-7qFXvdpuLTj0_JkYpJnhWd0JzFe3QiyR12gzjH_sQGLvl8mrSqXBnwcSCCvhDpVUx1UkgjA-FeUS1qgGeNUYYGBWn1DNGM0Wvagv83-8G7LQelb1aIxzuP4a3PT3pC52HHgLqxA"></div><div class="absolute -top-7 -right-5 sm:-right-6 w-16 h-16 sm:w-20 sm:h-20 rotate-6 select-none pointer-events-none z-20"><img alt="Pink Star Sticker" class="w-full h-full object-contain aspect-square drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVmWs6gCZ_LJYh5wvmlrQDKctE62NmecP4Qn2yc0aQRFHWeOAo0sULJg0g6gcWNmymisS-SLx6PAqDbb1hF_AIfps4S8fBvJhVNNQyMcnYgxRtpunaHmP_mSh54Bce47QjI1P3AFV9oClCyCuUSajacKdWjH0fM84xMk5_cFCtTgs4c01Ia57b5l-Pa1uKwnD9wu53-tuj-HPjW7ny5yf9tbCmoKkSOwwMDhYwyQC-z8CAKPXfN9CaxA"></div><div class="bg-white rounded-lg shadow-sm border border-[#ECD7DC] p-7 sm:p-9 relative z-10"><div class="pr-6"><h2 class="font-editorial text-2xl sm:text-[26px] font-bold text-ink-dark leading-snug">Belum tahu zodiakmu?</h2><p class="font-sans text-xs sm:text-sm text-ink-muted mt-2 leading-relaxed">Masukkan tanggal dan bulan lahirmu untuk mengetahui zodiak dan elemen dasarmu</p></div><form class="mt-6 flex flex-col gap-4" onsubmit="event.preventDefault(); findZodiacQuick();"><div class="grid grid-cols-2 gap-3 sm:gap-4"><div class="flex flex-col gap-1.5"><label class="font-mono text-[11px] uppercase tracking-wider text-ink-muted font-medium" for="birthDay">TANGGAL</label><input class="bg-blush-base/40 border border-[#ECD7DC] text-ink-dark rounded-md px-3.5 py-2.5 font-sans focus:outline-none focus:border-[#8C56A3] focus:ring-1 focus:ring-[#8C56A3] transition w-full shadow-2xs text-xs sm:text-sm" id="birthDay" max="31" min="1" placeholder="Isi tanggal lahir..." style="font-size: 13px; color: rgb(107, 114, 128);" type="text" inputmode="numeric"></div><div class="flex flex-col gap-1.5"><label class="font-mono text-[11px] uppercase tracking-wider text-ink-muted font-medium" for="birthMonth">BULAN</label><select class="bg-blush-base/40 border border-[#ECD7DC] text-ink-dark rounded-md px-3.5 py-2.5 font-sans focus:outline-none focus:ring-1 transition focus:border-[#8C56A3] focus:ring-[#8C56A3] shadow-2xs cursor-pointer text-xs sm:text-sm" id="birthMonth" style="font-size: 13px; color: rgb(107, 114, 128);" onchange="this.style.color = this.value ? '#1D1B20' : '#9ca3af';"><option value="" disabled="" selected="" class="text-gray-400">Isi bulan lahir...</option><option value="1" class="text-ink-dark">Januari</option><option value="2" class="text-ink-dark">Februari</option><option value="3" class="text-ink-dark">Maret</option><option value="4" class="text-ink-dark">April</option><option value="5" class="text-ink-dark">Mei</option><option value="6" class="text-ink-dark">Juni</option><option value="7" class="text-ink-dark">Juli</option><option value="8" class="text-ink-dark">Agustus</option><option value="9" class="text-ink-dark">September</option><option value="10" class="text-ink-dark">Oktober</option><option value="11" class="text-ink-dark">November</option><option value="12" class="text-ink-dark">Desember</option></select></div></div><div class="hidden transition-all duration-300 ease-out overflow-visible" id="quickResultCard"><div class="flex items-center gap-4 p-3.5 bg-[#FAF0F2]/80 border border-dashed border-[#DC2C67]/40 rounded"><div class="w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center"><img alt="Zodiak Result" class="w-full h-full object-contain animate-sway drop-shadow-sm pointer-events-none" id="quickResultImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgcng9IjgiIGZpbGw9IiNlOGVhZWQiLz48cGF0aCBkPSJNMTcwIDEzMCBsMzAgNDAgbDIwLTE1IGw0MCA1NSBIMTQweiIgZmlsbD0iI2JkYzFjNiIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjEyMCIgcj0iMTgiIGZpbGw9IiNiZGMxYzYiLz48L3N2Zz4="></div><div class="flex flex-col justify-center min-w-0 flex-1"><div class="flex items-baseline gap-2 flex-wrap"><h3 class="font-serif-display text-xl sm:text-2xl text-[#8C56A3] leading-none tracking-wide" id="quickResultName">Aries</h3><span class="font-sans text-xs sm:text-sm text-[#8C56A3] font-medium" id="quickResultRange">21 Mar – 19 Apr</span></div><div class="mt-1.5 flex items-center gap-2"><span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-sans font-normal tracking-normal bg-white/90 border border-[#EADCDD] text-ink-body" id="quickResultElementBadge">Elemen: <span class="ml-1 text-ink-body font-normal" id="quickResultElement">Api</span></span><a class="ml-auto font-sans text-xs font-medium border border-solid border-[#8C56A3] text-[#8C56A3] bg-transparent rounded px-3 py-1 transition-all hover:border-dashed hover:border-[#8C56A3] hover:text-[#8C56A3] hover:bg-transparent inline-flex items-center justify-center" href="#aries" id="quickResultLink">Lihat →</a></div></div></div></div><button class="w-full mt-2 text-white py-3 px-4 rounded-md font-sans text-sm sm:text-base font-semibold tracking-wide flex items-center justify-center transition shadow-sm active:scale-[0.99] cursor-pointer bg-[#8C56A3] hover:bg-[#7b4991]" type="submit">Cari Zodiak</button></form></div></div>
+</div>
+</section>
+<!-- OPEN ZODIAC GRID (4 columns × 3 rows on desktop, 2 columns on mobile) -->
+<section class="w-full max-w-7xl mx-auto px-10 py-10">
+<!-- Section Headline -->
+<div class="mb-12">
+<h2 class="font-serif-display text-3xl sm:text-4xl" style="color: rgb(220, 44, 103);">Pilih Zodiakmu</h2><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU6nVRtzFptg1pE23gHV2nqasUrd8ZNbQU5hbGioBQFBWo3rDDGYWUSoE5G7bhL0awd2AqQvzwbCwXufXm9ZdSpLNvuCIKXE69JhSFTnwIa2hS4oR3yr-Yi9aBZSBlYRsl2cLiyTveq_01Z98BlVKkzYOV4QELl5nS0wfXd3v2ppZZJcIacXxCv-6EaNBiZ0jt8-y1RDhbuw8C79TwOTp0H7v8Xtio7b3KBgoabk4VKm6RuSg4HBPigw" alt="Wavy Line Decor" class="w-52 sm:w-64 h-auto block mt-2 text-[#8C56A3] select-none pointer-events-none">
+</div>
+<!-- 4-Column Desktop Grid / 2-Column Mobile -->
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-10 gap-x-6 py-4">
+<!-- 1. Aries -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#aries">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Aries" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-lvFDqsEDzQImmwWLmzmZW-99GCyJW0vp5inM3wbxCY07_EY4xNTm9-Q1JkrbkhtvMmdz6i8LBkPS2QlPrP-dDa3gbUXNUd6btHev4Q9Gyc32vgy2p5xBKlPgoladPNrbGancVhaCCTlWu1dwBbUy0s1ehwXJXQg0NF7MuQBlEQMRy7Kt5lazkVlHTxAg56BcvO3V86bWZBEesnN8I6NjcFxmErBRfJHf1d1-IRwUajd_t4mImFqKUQ">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Aries
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">21 Mar – 19 Apr</p>
+</a>
+<!-- 2. Taurus -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#taurus">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Taurus" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmxJt-Z6JkaSCkNiiw1drZdHlT_dtC9faJUgYFfpNkF5k1O3B7cfmEVD5M9FEr-Eu3i8FKaWcV2MsYOifF6kTiLHsyuqSkKXCBXozyysn6Oi-UO8WufPywp83cD0xvwBmAch5zYA2nxKskLZXD50u35E4LiYG-qDXysQDKjnzm3lsfgvWLB8Qi79CC64Bv4yA9FNVLa1Mjdacisj4N-yirKba5NMmbwwfi505Jk5py1Z8rp3K_hZ4xzA">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Taurus
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">20 Apr – 20 Mei</p>
+</a>
+<!-- 3. Gemini -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#gemini">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Gemini" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKf8pQAZrZvGWmsNYRK_NMQgR2wkmqyk1MnuTqFDSKZ5et9y3C1w89l07dkPf6LIwBIS1hgGZsofIsqW6b4H0ahibThyCKD8aHcBlfh9S4Dm_PVebfD_R86PhyR3LcJyivdL-5fSSgl7_vkfgf_gwq6NNyAn8gbyqA74Ls7pNjOmkawDc_4kLyeAjfQMvRfFCrgPEgNBsiAeeqm7sxbEs5Jqc6vo50IpRRmqsgT7_9RbXBI9H8jIvjzg">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Gemini
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">21 Mei – 20 Jun</p>
+</a>
+<!-- 4. Cancer -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#cancer">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Cancer" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ2PqNJWDhPM0D84vBY2jCpOoGXFC_8BhIzxL10Ims0gY9WMzjLQAeMRnd5R3zGClSnxVInvcvtqb96Ke2qiOwpvIfOPLeTMk19WmE5Yuu9B3N7X90qsG84_9JWSgtaKJKwNbdV4Zd4mrsqLSkYxMc_WE7SGm3oSxpGZ1EBooEAfErSokASZfqzXJ5nheh-AxCtmXHSmKp6uMOejGsyvoD3sS90njznovD-wNO6RjCk3ufJpzqyQLmoA">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Cancer
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">21 Jun – 22 Jul</p>
+</a>
+<!-- 5. Leo -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#leo">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Leo" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWqLt_VL89Gi1ulX_ixJgtmZo8eRy3cEUZEcf0jBqNobxM14II0IvYY33Kk3O6_zxFWFUAzbpx9nvKcqRCZEyWC53hYe0Ya50TNtLQ1X0ysVzT3NrEie2A_aXqRBCzLCxSm-MXXGUVo6r9z6qNap5zdZW7Lse4Za4XtM_cL8CwTkIyDFrJCs9hGwSty3fOVsSceP_ddM-TwcjWZD8YvrR6COJVxYdc7w89SSSMtgM0CZ53R5j-Qf3srQ">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Leo
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">23 Jul – 22 Agu</p>
+</a>
+<!-- 6. Virgo -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#virgo">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Virgo" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfEk5forNxmGFxr-LlEpAhC4ylMB_eEYX5X2zxkD34QiQ3PutwnoMkIUPxMRiui31e1u7jz5Nvs5bkIA6T2nWMRb6a4IU8Ss5K9P8e-innjvFKRqwjOJLE7dc5EGgdfzVqUFcHr3RDAfNHgBqPoLlXLPmey-auI9FeCZIF5KHgyCR6UaGC5K99YZuWUmaGZwQzd3GSPUKnAXY3QcIP5J4arsJy6oBqyPqlzcvhwIBGUHjSOoYs-djOMQ">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Virgo
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">23 Agu – 22 Sep</p>
+</a>
+<!-- 7. Libra -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#libra">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Libra" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyAPzFOFFytVClUXKjdg8db2_Ok_cU5Ro4sDuJmxGgYit3Uw_aW0Tsp5rL8ZSoJvwh17VstMkRMtIrrg51z8DddatKt0ecLOtw3Jwo6gFn1iHNiopKMbtuKVCEB0SQg6585SYRKEZ_KSsGWLfZqo4DbIItWp-rR5yd4k8kguHRBHDm6KFhTY4CuQd8Y971yMZfUQlbBpf6_HEHRlHljzg1UYwi8zjWKQHhhapmp1j5q07BiHoYJU7H5A">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Libra
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">23 Sep – 22 Okt</p>
+</a>
+<!-- 8. Scorpio -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#scorpio">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Scorpio" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5IfnWdpdM4vwBCPOK10lqlOXa9xK1SNugHzTpqJqByYi95HwgUihT_YA5QWorDCJxO57YHqBHXIzYYgHKWT3bGz2CZrqQSWK2vTFWATTHZc6Hg6iyUFOT1F7nPvt0u0kiV0L9N4T2l06FnKTIhW2tGyJ9eCRWh-dJh-grRKxgSLb238d1l1Kat_0-zVD7EBhxCRmkTwlLgqKabBtzxWKxosGqy-6Soc3HumKkcPuD8K6FlNvPr9niXg">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Scorpio
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">23 Okt – 21 Nov</p>
+</a>
+<!-- 9. Sagittarius -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#sagitarius">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Sagittarius" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeArZbptCzV74tZlU13RK2OuImzeN1pa7hSgnuWQ9PV7f8XoRNq13EkJ-httNOZL1O74yIwvSkHvmKnBxDSRL5cK2wGb1X5re92hfDgyeRmdHwplEtzRB_LVsc5rUOR9sm4rCv__UNWTVjY0MyQlAqQh3FFwa1wjsjij8H_5RL5vdaYFWEq9imMpo4tzBglcCuk9EPhITxFd8h8msn64SSII7gk2ACACEYGFDTxNwkgkzwN7iItH-03A">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Sagittarius
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">22 Nov – 21 Des</p>
+</a>
+<!-- 10. Capricorn -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#capricorn">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Capricorn" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl0dpz7Hn95kwO4mUFV8sypvasME7JdvNIYd8vkHoEGwaDIWkKrZLpu9eZ3OVKWdery--5FN5NP3bks8BnXVGaiVR0gEu89nU9KwoBy8mTlH_PgvRnk0hS7Wr2Zzakz_yES2qohbYb2VXqHJh5nsDD_QMe_t0MO9gZ1YjiUfvBYa7CIa8Wc5mnT4UtmszRkrhuHW1ZIRrr5J-GmlrEfn-CxOh72QLCvxB8hukChUcWpjd4hve-tbb8ug">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Capricorn
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">22 Des – 19 Jan</p>
+</a>
+<!-- 11. Aquarius -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#aquarius">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Aquarius" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB81Q5sMukgR_qrCAeEaRb6FwVt9Aiug5QOHgBtIn3b6lqDDTanUrUn6wdd5Mx5WfWHuuAF5Vy9LCGQY2CPTU344ptAxsUlgTSpGLGklzrogz4iGrJB7G1VVp2QhGagPxmKKfa5rYE1mLCmXeQoB14c_vrP4EIcg5Lt7KUxwDg3xZwFT2jnc-YqbDtAYShoVWJOcEkucCPagE7y7t2rxf7FrLTICwI5pV9vUs7Iu6HHWSDwo3TMfMCjLQ">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Aquarius
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">20 Jan – 18 Feb</p>
+</a>
+<!-- 12. Pisces -->
+<a class="zodiac-item group flex flex-col items-center text-center cursor-pointer transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-105" href="#pisces">
+<div class="w-full aspect-square flex items-center justify-center mb-4">
+<img alt="Pisces" class="zodiac-img w-full h-full object-contain transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYWPbXaj_8d8sE-OIKwVO1ErqoR56XQ6-q97rUzHlkLpxS-wP8y5oC_CsGzY32uaEFqDMk9dYshb3YARZXIfvHSRya0VfkspPe2nPZopOg6GBzKKGhwOuSdQKN3b5LlHrU2RUJbdie1K-vglibOhyKeHL69YF1_uE7knNvu1Q-FXJFl2QSibefv65VBoSYlPU3OaOhWKmWuENsppfs60HjKNmPwTYLoe-HG555INgbxcmm75btIBiQLg">
+</div>
+<h3 class="font-serif-display text-2xl sm:text-3xl lg:text-[28px] uppercase tracking-wider text-[#8C56A3] transition-colors duration-200">
+Pisces
+</h3>
+<p class="font-sans text-xs sm:text-sm lg:text-[14px] text-[#8C56A3] font-medium mt-1">19 Feb – 20 Mar</p>
+</a>
+</div>
+</section>
+<!-- RAMALAN TERBARU SECTION -->
+<section class="w-full py-10" style="background-color: rgb(253, 242, 248);">
+<div class="max-w-7xl mx-auto px-10">
+<!-- Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-10">
+<div class="flex gap-3 flex-col items-start">
+<h2 class="font-serif-display text-3xl sm:text-4xl text-ink-dark" style="color: rgb(220, 44, 103);">Ramalan Terbaru</h2><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo8YjkkB0xNjzci1Ery0pcp0Zh-q-rcAfzTxoQTNMb8ZnQ1PqQZ-Japte86BIZGNgWZ8Xl3PUPRo1GD1nkg9eTlRNj68xGGnfMG-ZKddQJTNnRBerJX-ApFItFw38Vxw9tV6QsG3B39jioJT-HWo-tcRjC5w-JBU3oDiggj1IGLu4wQ87c18ulFgCiQmyEUaHPPeh4HT6pZGWCVpem9zhZgWHuAkZ9lYu2nJeJL896momsJfQugZXdOw" alt="decorative wavy line" class="w-52 sm:w-64 h-auto block mt-2 select-none pointer-events-none">
+</div>
+
+</div>
+<!-- 60% Lead + 40% Supporting Stack Layout -->
+<div class="flex flex-col lg:flex-row gap-4 h-auto lg:h-[480px] w-full items-stretch transition-all duration-500 ease-out" id="ramalan-accordion">
+<!-- Card 1 (Default Expanded) -->
+<div class="accordion-card relative flex-1 lg:flex-[3] rounded-sm overflow-hidden cursor-pointer transition-all duration-500 ease-out group min-h-[380px] lg:min-h-full border border-[#ECD7DC] shadow-[0_4px_20px_rgba(220,44,103,0.08)] flex flex-col justify-end p-6 sm:p-8 bg-[#00B1B1]" data-accordion-card="" onclick="activateAccordion(0)" onmouseenter="activateAccordion(0)" style="flex: 1 1 0%; background-color: rgb(0, 177, 177);"><img alt="Transit Planet Minggu Ini" class="accordion-bg absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0 opacity-0 transition-opacity duration-500 pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrPqFKBuVdqnkgoealsOnq1H9iWvEfz2Rdz2Bkox600o9vAI8BKnmr0eDo5VCNzrXc7f9MRiXSRgyFnU3VqSWsh14luxv12RZGtuo_EUytfG6LL-Uz4RhHwnjr-tDWH1VkiklbNS8UE0D67acNR8WBgwUcGxlyxKTSN9H0Sutg8h7LKcJXW1FRWfy3oeOy_rZHxi6t2VYgUXrYW-Ossyk4iPEfKoNsu0dgEfZTxwFwfCKKvnxS23rkydgYe5BzA29HS4m6f_mrjnh8IaQ" style="opacity: 0;">
+<div class="accordion-overlay absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent z-10 opacity-0 transition-opacity duration-500 pointer-events-none" style="opacity: 0;"></div>
+<div class="relative z-20 flex flex-col justify-end text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="accordion-date font-mono text-[11px] uppercase tracking-wider text-white/90">27 Okt 2026</span>
+</div>
+<h3 class="accordion-title font-serif-display text-xl sm:text-2xl lg:text-2xl leading-snug text-white transition-colors">
+        Transit Planet Minggu Ini: Waktunya 3 Zodiak Ini Mengambil Keputusan Karier Krusial
+      </h3>
+<p class="accordion-desc font-sans text-xs sm:text-sm text-white/90 leading-relaxed mt-2.5 max-w-2xl transition-all duration-500 overflow-hidden" style="opacity: 0; display: none;">
+        Pergerakan Merkurius dan Mars membawa dinamika baru dalam komunikasi kerja dan negosiasi finansial bagi Gemini, Virgo, dan Capricorn. Saatnya meninjau kembali batasan profesionalmu.
+      </p>
+</div></div>
+<!-- Card 2 (Collapsed by Default, Brand Magenta background) -->
+<div class="accordion-card relative flex-1 rounded-sm overflow-hidden cursor-pointer transition-all duration-500 ease-out group min-h-[300px] lg:min-h-full border border-[#ECD7DC] shadow-[0_4px_20px_rgba(220,44,103,0.08)] flex flex-col justify-end p-6 sm:p-8 bg-[#DC2C67]" data-accordion-card="" onclick="activateAccordion(1)" onmouseenter="activateAccordion(1)" style="flex: 3 1 0%;">
+<!-- Background Image (hidden initially, shown on expand) -->
+<img alt="Energi Bulan Purnama di Taurus" class="accordion-bg absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0 opacity-0 transition-opacity duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp1gtTVv60rqQOY8JP1fbV2_H-4eYZAyvyyhOYIJOZ18waZ6-WjPif1Hv4yX7NhKRyJQBtLuBubLB58_rqV6AMYL5aVpIbyCMMwRjsjBNQcUrR5kXagZZn5ZszQ4JaPA4wI5u4_9xfjugQ0SZ0axzeYg70oCx8_3lNxnqmyfJzkzC33It0C5gME5nWXJOHitZyeovCjhjrMncxsJzpM7tA5G75LDuCdErLG-xSGunonqgB2IDW9AGGkOz4SV3N9kkIG05kbe7CzO7hV24" style="opacity: 1;">
+<div class="accordion-overlay absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent z-10 opacity-0 transition-opacity duration-500" style="opacity: 1;"></div>
+<!-- Content Overlay -->
+<div class="relative z-20 flex flex-col justify-end text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-mono text-[11px] uppercase tracking-wider text-white/90">26 Okt 2026</span>
+</div>
+<h3 class="font-serif-display text-xl sm:text-2xl lg:text-2xl leading-snug text-white transition-colors lg:text-3xl">
+        Energi Bulan Purnama di Taurus: Refleksi Stabilitas dan Self-Care Finansial
+      </h3>
+<p class="accordion-desc font-sans text-xs sm:text-sm text-white/90 leading-relaxed mt-2.5 max-w-xl transition-all duration-500" style="opacity: 1; display: block;">
+        Ketahui bagaimana transit bulan purnama mengajak zodiak elemen tanah dan air memperlambat ritme dan menata kembali prioritas batin.
+      </p>
+</div>
+</div>
+<!-- Card 3 (Collapsed by Default, Brand Violet background) -->
+<div class="accordion-card relative flex-1 rounded-sm overflow-hidden cursor-pointer transition-all duration-500 ease-out group min-h-[300px] lg:min-h-full border border-[#ECD7DC] shadow-[0_4px_20px_rgba(220,44,103,0.08)] flex flex-col justify-end p-6 sm:p-8 bg-[#8C56A3]" data-accordion-card="" onclick="activateAccordion(2)" onmouseenter="activateAccordion(2)" style="flex: 1 1 0%;">
+<!-- Background Image (hidden initially, shown on expand) -->
+<img alt="Prediksi Asmara Akhir Bulan" class="accordion-bg absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-0 opacity-0 transition-opacity duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTHlqK3R2aXs-G3bEqeOs_gBapsaQ3JDBbTLhMuYkUCAgk9PfciFM9ddPK_C9NnIDp7jtUpnyW9JmrNNgFRomxQOnxfuK4tf8bxHZ3lAdqc9uxGGEZW7qybgSHXH6HUTPQdup-u5Ni5m1DvJ6vEEC_mxeWGYHJU0r5VJW6cE0KsW9bhym00_zt_wk_NP0RI3wni_dLCjoCQtDBERohhqE5xDpuXdLYJtqWcTW5Go0In7JzPyW6XQZSIYI3jl0iFWte1R0mauy0BdxFIGE" style="opacity: 0;">
+<div class="accordion-overlay absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent z-10 opacity-0 transition-opacity duration-500" style="opacity: 0;"></div>
+<!-- Content Overlay -->
+<div class="relative z-20 flex flex-col justify-end text-white">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-mono text-[11px] uppercase tracking-wider text-white/90">25 Okt 2026</span>
+</div>
+<h3 class="font-serif-display text-xl sm:text-2xl lg:text-2xl leading-snug text-white transition-colors">
+        Prediksi Asmara Akhir Bulan: Siapa yang Siap Membuka Hati Kembali?
+      </h3>
+<p class="accordion-desc font-sans text-xs sm:text-sm text-white/90 leading-relaxed mt-2.5 max-w-xl transition-all duration-500" style="display: none; opacity: 0;">
+        Aspek harmonis antara Venus dan Jupiter menghadirkan kejelasan untuk hubungan baru maupun percakapan mendalam bagi pasangan.
+      </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ARTIKEL SEPUTAR ZODIAK (Evergreen 3-Column Features) -->
+<section class="w-full max-w-7xl mx-auto px-10 py-10"><!-- Header Row: Title on Left, Carousel Navigation Arrows on Right -->
+<div class="flex items-center justify-between gap-4 mb-8">
+<div class="flex flex-col items-start gap-2"><h2 class="font-serif-display text-3xl sm:text-4xl text-ink-dark" style="color: rgb(220, 44, 103);">Artikel Seputar Zodiak</h2><img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4c7GJQ6iDJc5MdwgEICp8D7D_D7Jqb6r0N4bB_hazem7jFSUex8u9VJ0Ocsf2sGcFR6cVI_aP0djjd-2kfBG5_nD-GUuxpHug1eVPYfsSmAJqEKySDlm85uIJtnDM5IyQGoHrldhQL3kk6Jgkomh719LtecOTFbnj3rv4amMVsMmhe_vpLt_2i3s6QTXCIgWx2R39A8Y7ac6vedGMpWV6wQsjc4EsJ8ux-S9hlnSqPBtegu--g2R2Tw" alt="Wavy accent" class="w-52 sm:w-64 h-auto block select-none pointer-events-none"></div>
+<div class="flex items-center gap-2">
+<button aria-label="Sebelumnya" class="w-10 h-10 rounded-full border border-[#ECD7DC] bg-white flex items-center justify-center text-ink-dark hover:bg-blush-soft hover:text-brand-magenta transition-colors shadow-xs" onclick="const c = document.getElementById('artikel-carousel'); c.scrollBy({left: -c.offsetWidth * 0.75, behavior: 'smooth'});">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+</button>
+<button aria-label="Berikutnya" class="w-10 h-10 rounded-full border border-[#ECD7DC] bg-white flex items-center justify-center text-ink-dark hover:bg-blush-soft hover:text-brand-magenta transition-colors shadow-xs" onclick="const c = document.getElementById('artikel-carousel'); c.scrollBy({left: c.offsetWidth * 0.75, behavior: 'smooth'});">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Carousel Row: 3 Cards across desktop, horizontally swipeable on mobile -->
+<div class="flex md:grid md:grid-cols-3 gap-6 overflow-x-auto md:overflow-visible pb-4 md:pb-0 scroll-smooth snap-x snap-mandatory pt-4" id="artikel-carousel">
+<!-- Article Card 1 -->
+<a class="group relative flex-none w-[85%] sm:w-[55%] md:w-auto snap-start bg-white rounded-sm border border-[#ECD7DC] shadow-[0_4px_16px_rgba(220,44,103,0.04)] flex flex-col transition-shadow hover:shadow-[0_8px_24px_rgba(220,44,103,0.08)] cursor-pointer" href="#">
+<!-- Pop-out Cover Image Container: parent relative allows image to scale and pop out over top boundary -->
+<div class="relative w-full h-56 z-10">
+<img alt="Elemen Zodiak" class="w-full h-full object-cover rounded-t-sm origin-bottom transition-all duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB45eAcQTxvmYQc9x-r8ywIe7SrAZS7uQNfWLMSlyaYhTcoyhdCxGdsGRtxn8V1650mjsqy4lAgajco06GtWJ1rTfua5Hn3UfH4jQ65Y4bYzSNkhYiPlqzAHXcIaKucfEoHDd5TS4EQooOaDsJArIE2tuSWJMCGb1hus2XIUDlULuBxDbBFMBxM0MMJUdoJ5SY09-6_lKDPwn4de-bDNXYPpCgxHVhnaRzJ0_0MV6bLW2H7kS7yLRdVzg">
+</div>
+<div class="p-6 flex flex-col gap-2 relative z-0 flex-1">
+<span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted font-medium mb-1 block">24 Okt 2026</span><h3 class="font-serif-display text-xl text-ink-dark group-hover:text-brand-magenta transition-colors leading-snug">
+        Mengenal Elemen Api, Tanah, Udara, dan Air: Mengapa Peta Kelahiranmu Begitu Unik?
+      </h3>
+<p class="font-sans text-xs sm:text-sm text-ink-body leading-relaxed mt-1">
+        Pahami bagaimana perpaduan elemen dalam zodiak membentuk caramu merespons stres, menentukan ritme istirahat, dan membangun relasi bermakna.
+      </p>
+</div>
+</a>
+<!-- Article Card 2 -->
+<a class="group relative flex-none w-[85%] sm:w-[55%] md:w-auto snap-start bg-white rounded-sm border border-[#ECD7DC] shadow-[0_4px_16px_rgba(220,44,103,0.04)] flex flex-col transition-shadow hover:shadow-[0_8px_24px_rgba(220,44,103,0.08)] cursor-pointer" href="#">
+<!-- Pop-out Cover Image Container -->
+<div class="relative w-full h-56 z-10">
+<img alt="Kompatibilitas Pasangan" class="w-full h-full object-cover rounded-t-sm origin-bottom transition-all duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4nhqyHz20_TgL3_V7q3ziKyy7HZzZWHvirgv0vT5Jr64ymb1LvGLOAQAVlvoJvlfeT1_vSjCCKas-UVtvwEi8EmMQEKqAok181RqxcIDwGuh7_VohFFsw50dLsKRn46TOPYBQ_7Seyfc3OrAANARTUfxqNSRBcuBfq-KyNfF0X6BnRLEUQC6crMdDp352wYNPJfujTnQw5v1927EB0idCpR0Dayopt6J9YzQHTyZoTbpiR9IT1D-rWg">
+</div>
+<div class="p-6 flex flex-col gap-2 relative z-0 flex-1">
+<span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted font-medium mb-1 block">22 Okt 2026</span><h3 class="font-serif-display text-xl text-ink-dark group-hover:text-brand-magenta transition-colors leading-snug">
+        Panduan Cocok Logika vs Perasaan: Dinamika Hubungan Pasangan Zodiak Berbeda Elemen
+      </h3>
+<p class="font-sans text-xs sm:text-sm text-ink-body leading-relaxed mt-1">
+        Ketika zodiak berelemen Air bertemu Api atau Udara bertemu Tanah, ini rahasia menjaga harmoni komunikasi tanpa kehilangan jati diri.
+      </p>
+</div>
+</a>
+<!-- Article Card 3 -->
+<a class="group relative flex-none w-[85%] sm:w-[55%] md:w-auto snap-start bg-white rounded-sm border border-[#ECD7DC] shadow-[0_4px_16px_rgba(220,44,103,0.04)] flex flex-col transition-shadow hover:shadow-[0_8px_24px_rgba(220,44,103,0.08)] cursor-pointer" href="#">
+<!-- Pop-out Cover Image Container -->
+<div class="relative w-full h-56 z-10">
+<img alt="Ritual Self Care" class="w-full h-full object-cover rounded-t-sm origin-bottom transition-all duration-300 ease-out group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-[0_12px_24px_rgba(0,0,0,0.18)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtXx67onokCKzAfnh4OYBsRDzcyIpaCZhc37bGLLFPCyO-VZ7e0eJ-Kwls_qO5aTpp9cZxU0ocqz_5av11n_m71lZ2jsdOTXnrIWPjTQETEggD3TxBm6f01QOIgu3-eHZZpSY7f6q5iSz76AnUtOwyTHhm6CtC88RCvPNxDsQqTC5GrsJPuBl5T50sWql4Rbva8b_23UevdaxTr-V22g8BXjfGTbicThdl7lDk2HA5VKppqMZ68uGt6A">
+</div>
+<div class="p-6 flex flex-col gap-2 relative z-0 flex-1">
+<span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted font-medium mb-1 block">20 Okt 2026</span><h3 class="font-serif-display text-xl text-ink-dark group-hover:text-brand-magenta transition-colors leading-snug">
+        Ritual Self-Care yang Paling Pas Berdasarkan Elemen Zodiakmu
+      </h3>
+<p class="font-sans text-xs sm:text-sm text-ink-body leading-relaxed mt-1">
+        Mulai dari journaling reflektif hingga grounding walk, sesuaikan rutinitas pemulihan energimu dengan ritme astrologi tubuhmu.
+      </p>
+</div>
+</a>
+</div></section>
+</main>
+<!-- Editorial Brand Footer -->
+<footer class="w-full bg-[#FAF0F2] border-t border-[#E8D4D8]">
+
+</footer>
+<!-- Script for Zodiac quick lookup -->
+<script>
+    const zodiacData = {
+      "Aries": {
+        name: "Aries",
+        range: "21 Mar – 19 Apr",
+        element: "Api",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-lvFDqsEDzQImmwWLmzmZW-99GCyJW0vp5inM3wbxCY07_EY4xNTm9-Q1JkrbkhtvMmdz6i8LBkPS2QlPrP-dDa3gbUXNUd6btHev4Q9Gyc32vgy2p5xBKlPgoladPNrbGancVhaCCTlWu1dwBbUy0s1ehwXJXQg0NF7MuQBlEQMRy7Kt5lazkVlHTxAg56BcvO3V86bWZBEesnN8I6NjcFxmErBRfJHf1d1-IRwUajd_t4mImFqKUQ",
+        anchor: "#aries"
+      },
+      "Taurus": {
+        name: "Taurus",
+        range: "20 Apr – 20 Mei",
+        element: "Tanah",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDmxJt-Z6JkaSCkNiiw1drZdHlT_dtC9faJUgYFfpNkF5k1O3B7cfmEVD5M9FEr-Eu3i8FKaWcV2MsYOifF6kTiLHsyuqSkKXCBXozyysn6Oi-UO8WufPywp83cD0xvwBmAch5zYA2nxKskLZXD50u35E4LiYG-qDXysQDKjnzm3lsfgvWLB8Qi79CC64Bv4yA9FNVLa1Mjdacisj4N-yirKba5NMmbwwfi505Jk5py1Z8rp3K_hZ4xzA",
+        anchor: "#taurus"
+      },
+      "Gemini": {
+        name: "Gemini",
+        range: "21 Mei – 20 Jun",
+        element: "Udara",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCKf8pQAZrZvGWmsNYRK_NMQgR2wkmqyk1MnuTqFDSKZ5et9y3C1w89l07dkPf6LIwBIS1hgGZsofIsqW6b4H0ahibThyCKD8aHcBlfh9S4Dm_PVebfD_R86PhyR3LcJyivdL-5fSSgl7_vkfgf_gwq6NNyAn8gbyqA74Ls7pNjOmkawDc_4kLyeAjfQMvRfFCrgPEgNBsiAeeqm7sxbEs5Jqc6vo50IpRRmqsgT7_9RbXBI9H8jIvjzg",
+        anchor: "#gemini"
+      },
+      "Cancer": {
+        name: "Cancer",
+        range: "21 Jun – 22 Jul",
+        element: "Air",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZ2PqNJWDhPM0D84vBY2jCpOoGXFC_8BhIzxL10Ims0gY9WMzjLQAeMRnd5R3zGClSnxVInvcvtqb96Ke2qiOwpvIfOPLeTMk19WmE5Yuu9B3N7X90qsG84_9JWSgtaKJKwNbdV4Zd4mrsqLSkYxMc_WE7SGm3oSxpGZ1EBooEAfErSokASZfqzXJ5nheh-AxCtmXHSmKp6uMOejGsyvoD3sS90njznovD-wNO6RjCk3ufJpzqyQLmoA",
+        anchor: "#cancer"
+      },
+      "Leo": {
+        name: "Leo",
+        range: "23 Jul – 22 Agu",
+        element: "Api",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBWqLt_VL89Gi1ulX_ixJgtmZo8eRy3cEUZEcf0jBqNobxM14II0IvYY33Kk3O6_zxFWFUAzbpx9nvKcqRCZEyWC53hYe0Ya50TNtLQ1X0ysVzT3NrEie2A_aXqRBCzLCxSm-MXXGUVo6r9z6qNap5zdZW7Lse4Za4XtM_cL8CwTkIyDFrJCs9hGwSty3fOVsSceP_ddM-TwcjWZD8YvrR6COJVxYdc7w89SSSMtgM0CZ53R5j-Qf3srQ",
+        anchor: "#leo"
+      },
+      "Virgo": {
+        name: "Virgo",
+        range: "23 Agu – 22 Sep",
+        element: "Tanah",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfEk5forNxmGFxr-LlEpAhC4ylMB_eEYX5X2zxkD34QiQ3PutwnoMkIUPxMRiui31e1u7jz5Nvs5bkIA6T2nWMRb6a4IU8Ss5K9P8e-innjvFKRqwjOJLE7dc5EGgdfzVqUFcHr3RDAfNHgBqPoLlXLPmey-auI9FeCZIF5KHgyCR6UaGC5K99YZuWUmaGZwQzd3GSPUKnAXY3QcIP5J4arsJy6oBqyPqlzcvhwIBGUHjSOoYs-djOMQ",
+        anchor: "#virgo"
+      },
+      "Libra": {
+        name: "Libra",
+        range: "23 Sep – 22 Okt",
+        element: "Udara",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCyAPzFOFFytVClUXKjdg8db2_Ok_cU5Ro4sDuJmxGgYit3Uw_aW0Tsp5rL8ZSoJvwh17VstMkRMtIrrg51z8DddatKt0ecLOtw3Jwo6gFn1iHNiopKMbtuKVCEB0SQg6585SYRKEZ_KSsGWLfZqo4DbIItWp-rR5yd4k8kguHRBHDm6KFhTY4CuQd8Y971yMZfUQlbBpf6_HEHRlHljzg1UYwi8zjWKQHhhapmp1j5q07BiHoYJU7H5A",
+        anchor: "#libra"
+      },
+      "Scorpio": {
+        name: "Scorpio",
+        range: "23 Okt – 21 Nov",
+        element: "Air",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5IfnWdpdM4vwBCPOK10lqlOXa9xK1SNugHzTpqJqByYi95HwgUihT_YA5QWorDCJxO57YHqBHXIzYYgHKWT3bGz2CZrqQSWK2vTFWATTHZc6Hg6iyUFOT1F7nPvt0u0kiV0L9N4T2l06FnKTIhW2tGyJ9eCRWh-dJh-grRKxgSLb238d1l1Kat_0-zVD7EBhxCRmkTwlLgqKabBtzxWKxosGqy-6Soc3HumKkcPuD8K6FlNvPr9niXg",
+        anchor: "#scorpio"
+      },
+      "Sagittarius": {
+        name: "Sagittarius",
+        range: "22 Nov – 21 Des",
+        element: "Api",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBeArZbptCzV74tZlU13RK2OuImzeN1pa7hSgnuWQ9PV7f8XoRNq13EkJ-httNOZL1O74yIwvSkHvmKnBxDSRL5cK2wGb1X5re92hfDgyeRmdHwplEtzRB_LVsc5rUOR9sm4rCv__UNWTVjY0MyQlAqQh3FFwa1wjsjij8H_5RL5vdaYFWEq9imMpo4tzBglcCuk9EPhITxFd8h8msn64SSII7gk2ACACEYGFDTxNwkgkzwN7iItH-03A",
+        anchor: "#sagitarius"
+      },
+      "Capricorn": {
+        name: "Capricorn",
+        range: "22 Des – 19 Jan",
+        element: "Tanah",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAl0dpz7Hn95kwO4mUFV8sypvasME7JdvNIYd8vkHoEGwaDIWkKrZLpu9eZ3OVKWdery--5FN5NP3bks8BnXVGaiVR0gEu89nU9KwoBy8mTlH_PgvRnk0hS7Wr2Zzakz_yES2qohbYb2VXqHJh5nsDD_QMe_t0MO9gZ1YjiUfvBYa7CIa8Wc5mnT4UtmszRkrhuHW1ZIRrr5J-GmlrEfn-CxOh72QLCvxB8hukChUcWpjd4hve-tbb8ug",
+        anchor: "#capricorn"
+      },
+      "Aquarius": {
+        name: "Aquarius",
+        range: "20 Jan – 18 Feb",
+        element: "Udara",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuB81Q5sMukgR_qrCAeEaRb6FwVt9Aiug5QOHgBtIn3b6lqDDTanUrUn6wdd5Mx5WfWHuuAF5Vy9LCGQY2CPTU344ptAxsUlgTSpGLGklzrogz4iGrJB7G1VVp2QhGagPxmKKfa5rYE1mLCmXeQoB14c_vrP4EIcg5Lt7KUxwDg3xZwFT2jnc-YqbDtAYShoVWJOcEkucCPagE7y7t2rxf7FrLTICwI5pV9vUs7Iu6HHWSDwo3TMfMCjLQ",
+        anchor: "#aquarius"
+      },
+      "Pisces": {
+        name: "Pisces",
+        range: "19 Feb – 20 Mar",
+        element: "Air",
+        img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDYWPbXaj_8d8sE-OIKwVO1ErqoR56XQ6-q97rUzHlkLpxS-wP8y5oC_CsGzY32uaEFqDMk9dYshb3YARZXIfvHSRya0VfkspPe2nPZopOg6GBzKKGhwOuSdQKN3b5LlHrU2RUJbdie1K-vglibOhyKeHL69YF1_uE7knNvu1Q-FXJFl2QSibefv65VBoSYlPU3OaOhWKmWuENsppfs60HjKNmPwTYLoe-HG555INgbxcmm75btIBiQLg",
+        anchor: "#pisces"
+      }
+    };
+
+    function findZodiacQuick() {
+      const day = parseInt(document.getElementById('birthDay').value) || 21;
+      const month = parseInt(document.getElementById('birthMonth').value) || 3;
+      const cardEl = document.getElementById('quickResultCard');
+
+      const signs = [
+        { name: "Capricorn", start: [12, 22], end: [1, 19] },
+        { name: "Aquarius", start: [1, 20], end: [2, 18] },
+        { name: "Pisces", start: [2, 19], end: [3, 20] },
+        { name: "Aries", start: [3, 21], end: [4, 19] },
+        { name: "Taurus", start: [4, 20], end: [5, 20] },
+        { name: "Gemini", start: [5, 21], end: [6, 20] },
+        { name: "Cancer", start: [6, 21], end: [7, 22] },
+        { name: "Leo", start: [7, 23], end: [8, 22] },
+        { name: "Virgo", start: [8, 23], end: [9, 22] },
+        { name: "Libra", start: [9, 23], end: [10, 22] },
+        { name: "Scorpio", start: [10, 23], end: [11, 21] },
+        { name: "Sagittarius", start: [11, 22], end: [12, 21] }
+      ];
+
+      let detected = "Aries";
+
+      for (let s of signs) {
+        const [sm, sd] = s.start;
+        const [em, ed] = s.end;
+
+        if (sm > em) {
+          if ((month === sm && day >= sd) || (month === em && day <= ed)) {
+            detected = s.name;
+            break;
+          }
+        } else {
+          if ((month === sm && day >= sd) || (month === em && day <= ed)) {
+            detected = s.name;
+            break;
+          }
+        }
+      }
+
+      const match = zodiacData[detected] || zodiacData["Aries"];
+
+      document.getElementById('quickResultImg').src = match.img;
+      document.getElementById('quickResultImg').alt = match.name;
+      document.getElementById('quickResultName').innerText = match.name;
+      document.getElementById('quickResultRange').innerText = match.range;
+      document.getElementById('quickResultElement').innerText = match.element;
+      document.getElementById('quickResultLink').href = match.anchor;
+
+      cardEl.classList.remove('hidden');
+    }
+  </script>
+<script>
+  function activateAccordion(activeIndex) {
+    if (window.innerWidth < 1024) return;
+    const cards = document.querySelectorAll('[data-accordion-card]');
+    cards.forEach((card, idx) => {
+      const bg = card.querySelector('.accordion-bg');
+      const overlay = card.querySelector('.accordion-overlay');
+      const desc = card.querySelector('.accordion-desc');
+      const heading = card.querySelector('h3');
+      
+      if (idx === activeIndex) {
+        card.style.flex = '3';
+        if (bg) bg.style.opacity = '1';
+        if (overlay) overlay.style.opacity = '1';
+        if (desc) {
+          desc.classList.remove('hidden', 'lg:hidden', 'opacity-0');
+          desc.style.display = 'block';
+          desc.style.opacity = '1';
+        }
+        if (heading) heading.classList.add('lg:text-3xl');
+      } else {
+        card.style.flex = '1';
+        if (bg) bg.style.opacity = '0';
+        if (overlay) overlay.style.opacity = '0';
+        if (desc) {
+          desc.style.opacity = '0';
+          desc.style.display = 'none';
+        }
+        if (heading) heading.classList.remove('lg:text-3xl');
+      }
+    });
+  }
+</script>
+
+
+
+
+
+
+</body></html>

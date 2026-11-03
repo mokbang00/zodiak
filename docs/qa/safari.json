@@ -1,0 +1,4 @@
+{
+  "status": "unavailable",
+  "reason": "session not created: Could not create a session: You must enable 'Allow remote automation' in Safari Developer preferences to control Safari via WebDriver."
+}

@@ -1,0 +1,18 @@
+{
+  "home": {
+    "width": 1280,
+    "height": 2727
+  },
+  "detail": {
+    "width": 1296,
+    "height": 3708
+  },
+  "home-mobile": {
+    "width": 390,
+    "height": 4153
+  },
+  "detail-mobile": {
+    "width": 390,
+    "height": 4261
+  }
+}

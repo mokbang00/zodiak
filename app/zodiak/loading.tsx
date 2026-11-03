@@ -1,0 +1,1 @@
+export default function Loading(){return <main id="main" className="page-skeleton" aria-busy="true" aria-label="Memuat ramalan"><span className="sr-only" role="status">Memuat ramalan…</span><div/><div/><div/></main>;}

@@ -1,0 +1,10 @@
+import fs from 'node:fs/promises';
+const response=await fetch('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&display=swap',{headers:{'User-Agent':'Mozilla/5.0'}});
+const css=await response.text();
+const url=Array.from(css.matchAll(/url\(([^)]+)\)/g)).at(-1)?.[1];
+if(!url)throw new Error('Missing italic font URL');
+const font=await fetch(url);
+if(!font.ok)throw new Error('Font download failed');
+await fs.writeFile('public/fonts/dm-serif-italic.woff2',Buffer.from(await font.arrayBuffer()));
+await fs.writeFile('docs/font-source.css',css);
+console.log('Saved original DM Serif Display italic.');

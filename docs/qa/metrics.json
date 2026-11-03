@@ -1,0 +1,132 @@
+{
+  "home": {
+    "h1": {
+      "x": 40,
+      "y": 56,
+      "width": 445.46875,
+      "height": 146.875,
+      "font": "72px / 73.44px \"DM Serif Display\", Georgia, serif",
+      "fontFamily": "\"DM Serif Display\", Georgia, serif"
+    },
+    ".directory-hero": {
+      "x": 40,
+      "y": 36,
+      "width": 1200,
+      "height": 379.1875,
+      "font": "16px / 25.6px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".zodiac-grid": {
+      "x": 40,
+      "y": 593.375,
+      "width": 1200,
+      "height": 583.96875,
+      "font": "16px / 25.6px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".latest-grid": {
+      "x": 40,
+      "y": 1395.53125,
+      "width": 1200,
+      "height": 480,
+      "font": "16px / 25.6px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".detail-hero-paper": null,
+    ".reading-column": null
+  },
+  "detail": {
+    "h1": {
+      "x": 153,
+      "y": 199.90625,
+      "width": 558.828125,
+      "height": 107,
+      "font": "60px / 69px \"DM Serif Display\", Georgia, serif",
+      "fontFamily": "\"DM Serif Display\", Georgia, serif"
+    },
+    ".directory-hero": null,
+    ".zodiac-grid": null,
+    ".latest-grid": null,
+    ".detail-hero-paper": {
+      "x": 104,
+      "y": 101,
+      "width": 1088,
+      "height": 436,
+      "font": "16px / 25.6px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".reading-column": {
+      "x": 228,
+      "y": 873,
+      "width": 840,
+      "height": 2233.9375,
+      "font": "16px / 25.6px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    }
+  },
+  "home-mobile": {
+    "h1": {
+      "x": 20,
+      "y": 68,
+      "width": 263.015625,
+      "height": 86.71875,
+      "font": "42.51px / 43.3602px \"DM Serif Display\", Georgia, serif",
+      "fontFamily": "\"DM Serif Display\", Georgia, serif"
+    },
+    ".directory-hero": {
+      "x": 20,
+      "y": 44,
+      "width": 350,
+      "height": 658.96875,
+      "font": "14px / 22.4px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".zodiac-grid": {
+      "x": 20,
+      "y": 842.65625,
+      "width": 350,
+      "height": 1565.125,
+      "font": "14px / 22.4px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".latest-grid": {
+      "x": 20,
+      "y": 2579.46875,
+      "width": 350,
+      "height": 719.1875,
+      "font": "14px / 22.4px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".detail-hero-paper": null,
+    ".reading-column": null
+  },
+  "detail-mobile": {
+    "h1": {
+      "x": 45,
+      "y": 122,
+      "width": 300,
+      "height": 113.78125,
+      "font": "36px / 41.4px \"DM Serif Display\", Georgia, serif",
+      "fontFamily": "\"DM Serif Display\", Georgia, serif"
+    },
+    ".directory-hero": null,
+    ".zodiac-grid": null,
+    ".latest-grid": null,
+    ".detail-hero-paper": {
+      "x": 20,
+      "y": 89,
+      "width": 350,
+      "height": 611.765625,
+      "font": "14px / 22.4px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    },
+    ".reading-column": {
+      "x": 20,
+      "y": 979.765625,
+      "width": 350,
+      "height": 2483.734375,
+      "font": "14px / 22.4px \"Plus Jakarta Sans\", sans-serif",
+      "fontFamily": "\"Plus Jakarta Sans\", sans-serif"
+    }
+  }
+}

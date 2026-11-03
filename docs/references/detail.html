@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+
+<html class="w-full min-h-screen" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ramalan Zodiak Libra — kumparanWOMAN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&amp;family=Playfair+Display:ital,wght@1,600&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              pink: '#DC2C67',
+              purple: '#8C56A3',
+              lightBg: '#FDF2F8',
+              darkText: '#1F2937',
+              charcoal: '#2A1F2D',
+              muted: '#6B7280',
+              cream: '#FFF9FB',
+              amberSoft: '#FEF3C7',
+            }
+          },
+          fontFamily: {
+            serifDisplay: ['"DM Serif Display"', 'serif'],
+            body: ['"Plus Jakarta Sans"', 'sans-serif'],
+            label: ['"DM Sans"', 'sans-serif'],
+            handwriting: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body {
+      background-color: #FDF2F8;
+      color: #1F2937;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-heading { font-family: 'DM Serif Display', serif; }
+    .font-body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-label { font-family: 'DM Sans', sans-serif; }
+    
+    /* Subtle Marquee Animation */
+    @keyframes marqueeRibbon {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-ribbon {
+      display: inline-flex;
+      white-space: nowrap;
+      animation: marqueeRibbon 32s linear infinite;
+    }
+    .animate-ribbon:hover {
+      animation-play-state: paused;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-ribbon {
+        animation: none !important;
+      }
+    }
+
+    /* Paper texture & subtle scrapbook grid */
+    .bg-grid-paper {
+      background-size: 24px 24px;
+      background-image: 
+        linear-gradient(to right, rgba(220, 44, 103, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(220, 44, 103, 0.05) 1px, transparent 1px);
+    }
+
+    /* Binder clip style */
+    .binder-clip {
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.18));
+    }
+    
+    /* Stamp style */
+    .stamp-badge {
+      border: 2px dashed #DC2C67;
+      border-radius: 9999px;
+      transform: rotate(-3deg);
+    }
+    
+    /* Custom scrollbar for chips row on mobile */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen w-full antialiased selection:bg-pink-200 selection:text-pink-900 pb-24 overflow-x-hidden">
+<!-- TOP MINIMAL NAVIGATION BAR FOR BREADCRUMB & BACK TO HOMEPAGE -->
+<header class="w-full border-b border-pink-100 bg-[#FDF2F8]/90 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-6 lg:px-12 py-3.5">
+<div class="max-w-6xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-3 sm:gap-4 overflow-hidden">
+<a class="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-label font-medium text-brand-purple hover:text-brand-pink transition-colors truncate" href="javascript:void(0)">
+<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="truncate">Kembali ke Direktori Zodiak</span>
+</a>
+<span class="text-pink-300">/</span>
+<span class="text-xs font-label uppercase tracking-widest text-brand-pink font-semibold bg-pink-100/60 px-2.5 py-0.5 rounded-full shrink-0">Libra</span>
+</div>
+<div class="flex items-center gap-3">
+</div>
+</div>
+</header>
+<!-- MAIN WRAPPER -->
+<main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 lg:pt-12">
+<!-- 1. HEADER & COVER SECTION (WIDE SCRAPBOOK COVER INSPIRED BY ATTACHED BANNER) -->
+<section class="relative w-full mb-8 sm:mb-10">
+<!-- Hanging Binder Clip on top center -->
+<div class="absolute -top-6 left-6 sm:left-12 z-20 hidden sm:block">
+<img alt="Star Sticker" class="w-14 h-14 object-contain drop-shadow-sm pointer-events-none transform -rotate-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyeoMgG7pw3bJR9ktnCScweGc_5thm-wx7yrga2MWGQlmgVr_g_chIm4sEabduUXWlBUW47wprycP9t5JIcClleAHuOLGRdaDrZSehGdRj-LNVIyTlrCC6VdAF98y6TF4bIV8A0Hus5mW9lIftXv5cslA5EgMOyTFvx8hOV49lGjNhD7ZlWPXwLD9G043ccaQ8i9jAjlOI0pS3JkiNW_pCuFqImXutg6Tg2FnQ3ozdQBRyOOCJK3k8Cw"/>
+</div>
+<!-- Main Scrapbook Card Frame -->
+<div class="relative bg-white rounded-3xl p-5 sm:p-10 lg:p-12 shadow-[0_12px_40px_rgba(220,44,103,0.07)] border border-pink-100/80 bg-grid-paper overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+<!-- Left: Zodiac Typography & Profile Badges -->
+<div class="lg:col-span-7 flex flex-col items-start justify-center space-y-4">
+<div class="inline-flex items-center gap-2">
+</div>
+<div class="space-y-1">
+<h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading text-brand-charcoal tracking-tight leading-[1.15]">
+                Ramalan Zodiak <span class="text-brand-pink italic block sm:inline">Libra</span>
+</h1>
+</div>
+<p class="text-base sm:text-lg font-body text-gray-700 max-w-xl leading-relaxed">
+              Dikenal sebagai sang penyeimbang yang cinta damai, penuh pesona, dan berintelek tinggi. Simak bagaimana energi kosmik memandu langkahmu menuju keharmonisan asmara, karier, dan ketenangan batin.
+            </p>
+<!-- Quick Metadata Pills -->
+<div class="pt-2 flex flex-wrap gap-2.5 text-xs font-label text-gray-600">
+</div>
+</div>
+<!-- Right: Scrapbook Visual Frame with Libra Illustration -->
+<div class="lg:col-span-5 flex justify-center items-center w-full">
+<div class="relative group w-full max-w-xs sm:max-w-sm">
+<!-- Backdrop Paper / Collage Shadow -->
+<div class="absolute inset-0 bg-[#FDF2F8] rounded-2xl transform rotate-2 border border-pink-200 pointer-events-none"></div>
+<!-- Main Illustration Container -->
+<div class="relative bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-pink-100 flex flex-col items-center text-center transform -rotate-1 transition-transform duration-300 hover:rotate-0">
+<div class="w-40 h-40 sm:w-56 sm:h-56 relative flex items-center justify-center">
+<img alt="Ilustrasi Libra Hand-Drawn" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA--XqxdQfgUdhiN0AaUG4LidA0ymtFpObx_AzkzuihIR3pG3WGS6KuXIkYhYIHzDNrcx5DgdBr3Rw5qLYTkt-p7REZv0gA6b713HyS8TLBLLPypfC2rEsuysT_ObzwndGpoml29A6lCP8toGNe1QzHfEE-_iHl0ArZaufuyHMd-RHvz71zKssWAM04v3Ayzxpw4Xm-IopKDVWhIfNl3X3-gePKx-lLVyBf6eIq1q_sMoDkDexD2Wnkvj19jcTxM_lF1YI7pr6CSKCsmZE"/>
+</div>
+<div class="mt-4 pt-3 border-t border-pink-100 w-full flex items-center justify-between text-xs font-label text-gray-500 gap-2">
+<span class="font-medium text-brand-pink tracking-wider">ELEMEN · UDARA</span>
+<span class="font-semibold text-brand-purple">23 SEP – 22 OKT</span>
+</div>
+</div>
+<!-- Sparkle Star Accent -->
+<div class="absolute -bottom-3 -left-4 z-20">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. DECORATIVE SEPARATOR: TILTED FULL-WIDTH RIBBON WITH MARQUEE SCROLL -->
+<section class="relative w-full my-8 overflow-hidden py-4">
+<div class="relative w-full transform -rotate-1 scale-105 bg-white py-3 border-y-2 border-[#DC2C67]/30 shadow-sm overflow-hidden bg-[radial-gradient(#DC2C67_0.75px,transparent_0.75px)] [background-size:12px_12px]">
+<div class="flex items-center animate-ribbon">
+<!-- Item set 1 -->
+<div class="flex items-center gap-8 px-4 text-xs sm:text-sm font-label uppercase tracking-widest text-brand-charcoal font-semibold shrink-0">
+<span class="inline-flex items-center gap-2 text-brand-pink">
+<span class="text-base font-serifDisplay italic font-normal">fyi!</span> THE SUN IS IN HARMONY
+            </span>
+<span class="text-brand-purple">♎ LIBRA</span>
+<span class="text-stone-400">✦</span>
+<span class="text-stone-700">VENUS RULES BALANCE &amp; BEAUTY</span>
+<span class="text-stone-400">✦</span>
+<span class="px-2.5 py-0.5 rounded-full border border-dashed border-[#DC2C67] text-brand-pink font-bold text-[11px]">
+              EDISI 2026
+            </span>
+<span class="text-stone-400">✦</span>
+<span class="text-brand-purple font-medium">AIR ELEMENT · UDARA CERDAS</span>
+<span class="text-stone-400">✦</span>
+<span class="inline-flex items-center gap-2 text-brand-pink">
+<span class="text-base font-serifDisplay italic font-normal">fyi!</span> CARI KESEIMBANGAN HIDUPMU
+            </span>
+<span class="text-stone-400">✦</span>
+<span class="text-brand-charcoal">JUSTICE · LOVE · INTELLECT</span>
+<span class="text-stone-400">✦</span>
+</div>
+<!-- Item set 2 (Identical loop content) -->
+<div aria-hidden="true" class="flex items-center gap-8 px-4 text-xs sm:text-sm font-label uppercase tracking-widest text-brand-charcoal font-semibold shrink-0">
+<span class="inline-flex items-center gap-2 text-brand-pink">
+<span class="text-base font-serifDisplay italic font-normal">fyi!</span> THE SUN IS IN HARMONY
+            </span>
+<span class="text-brand-purple">♎ LIBRA</span>
+<span class="text-stone-400">✦</span>
+<span class="text-stone-700">VENUS RULES BALANCE &amp; BEAUTY</span>
+<span class="text-stone-400">✦</span>
+<span class="px-2.5 py-0.5 rounded-full border border-dashed border-[#DC2C67] text-brand-pink font-bold text-[11px]">
+              EDISI 2026
+            </span>
+<span class="text-stone-400">✦</span>
+<span class="text-brand-purple font-medium">AIR ELEMENT · UDARA CERDAS</span>
+<span class="text-stone-400">✦</span>
+<span class="inline-flex items-center gap-2 text-brand-pink">
+<span class="text-base font-serifDisplay italic font-normal">fyi!</span> CARI KESEIMBANGAN HIDUPMU
+            </span>
+<span class="text-stone-400">✦</span>
+<span class="text-brand-charcoal">JUSTICE · LOVE · INTELLECT</span>
+<span class="text-stone-400">✦</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. PERIOD CHIPS (STICKY INTERACTIVE NAVIGATION) -->
+<section class="sticky top-[53px] z-30 w-full py-3 mb-6 bg-[#FDF2F8]/95 backdrop-blur-md transition-all">
+<div class="flex items-center">
+<!-- Horizontal scroll chips container on mobile -->
+<div class="w-full overflow-x-auto whitespace-nowrap no-scrollbar py-1">
+<div aria-label="Pilih Periode Ramalan" class="inline-flex items-center gap-2 sm:gap-2.5 bg-white/90 p-1.5 rounded-full border border-pink-200 shadow-sm" role="tablist">
+<button aria-selected="true" class="period-tab active-chip px-5 py-2 rounded-full text-xs sm:text-sm font-label font-bold transition-all duration-200 shadow-sm bg-[#DC2C67] text-white border border-[#DC2C67] whitespace-nowrap shrink-0" id="tab-today" onclick="switchPeriod('today')" role="tab" type="button">
+              Hari Ini
+            </button>
+<button aria-selected="false" class="period-tab px-5 py-2 rounded-full text-xs sm:text-sm font-label font-semibold text-gray-800 border border-dashed border-[#DC2C67]/40 hover:border-[#DC2C67] hover:text-[#DC2C67] bg-white transition-all duration-200 whitespace-nowrap shrink-0" id="tab-tomorrow" onclick="switchPeriod('tomorrow')" role="tab" type="button">
+              Besok
+            </button>
+<button aria-selected="false" class="period-tab px-5 py-2 rounded-full text-xs sm:text-sm font-label font-semibold text-gray-800 border border-dashed border-[#DC2C67]/40 hover:border-[#DC2C67] hover:text-[#DC2C67] bg-white transition-all duration-200 whitespace-nowrap shrink-0" id="tab-week" onclick="switchPeriod('week')" role="tab" type="button">
+              Minggu Ini
+            </button>
+<button aria-selected="false" class="period-tab px-5 py-2 rounded-full text-xs sm:text-sm font-label font-semibold text-gray-800 border border-dashed border-[#DC2C67]/40 hover:border-[#DC2C67] hover:text-[#DC2C67] bg-white transition-all duration-200 whitespace-nowrap shrink-0" id="tab-month" onclick="switchPeriod('month')" role="tab" type="button">
+              Bulan Ini
+            </button>
+<button aria-selected="false" class="period-tab px-5 py-2 rounded-full text-xs sm:text-sm font-label font-semibold text-gray-800 border border-dashed border-[#DC2C67]/40 hover:border-[#DC2C67] hover:text-[#DC2C67] bg-white transition-all duration-200 whitespace-nowrap shrink-0" id="tab-year" onclick="switchPeriod('year')" role="tab" type="button">
+              Tahun Ini
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. BODY CONTENT (ONE CONTINUOUS CONTENT COMPONENT WITH 5 SECTIONS) -->
+<article class="bg-white rounded-3xl p-5 sm:p-10 lg:p-14 shadow-[0_16px_45px_rgba(220,44,103,0.06)] border border-pink-100/90 relative">
+<!-- Top Component Metadata (Selected Period, Author, Update Date) -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-6 sm:pb-8 mb-8 sm:mb-10 border-b border-pink-100 bg-pink-50/40 -mx-5 -mt-5 sm:-mx-10 sm:-mt-10 lg:-mx-14 lg:-mt-14 p-5 sm:p-8 rounded-t-3xl">
+<div class="flex items-center gap-3">
+<div>
+<div class="text-base sm:text-lg font-heading text-brand-charcoal" id="period-date-display">
+              Kamis, 29 Oktober 2026
+            </div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-4 text-xs font-label text-gray-600">
+<div class="flex items-center gap-1.5">
+<svg class="w-4 h-4 text-brand-pink shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span id="updated-display">Diperbarui 29 Oktober 2026, 06:00 WIB</span>
+</div>
+</div>
+</div>
+<!-- 1. SINGLE CENTERED COVER IMAGE -->
+<div class="w-full flex flex-col items-center justify-center pb-8">
+<div class="relative max-w-3xl w-full aspect-video rounded-2xl overflow-hidden shadow-sm">
+<img alt="Cosmic Celestial Editorial Cover Art" class="w-full h-full object-cover select-none rounded-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2HY_UDa-wbIWw9ssfrvPe6r2CxtuC7sNFamyIWPS4NKeX5FnjAHkTCxCfuxw7fAOO5i5Dwx6DzNuNvgT1hRpbIr_Bd4j7wyEPNtg_iNXdMwEgCNcnlO5rJWJPc8plj8UiuzrwvQOPwtrq3vxtyIgD9RcKP_S6O2cSj4kAwQpbEy__3FKIDBj0GPSjGXe3xnUSZ58wsxZaJb903Hfp8qrkigAQ7fpa_WX7RpJFJDGU5cTUKtErQSEjvotHdkESDsxbcaOrnyLWPbtWrFQ"/>
+</div>
+</div>
+<!-- SECTION 1: ASMARA (Relasi & Cinta) -->
+<section class="py-4 sm:py-6 max-w-3xl mx-auto space-y-4">
+<h3 class="text-2xl sm:text-3xl font-heading text-brand-charcoal leading-snug">
+          Asmara: Membuka Ruang Dialog yang Setara
+        </h3>
+<div class="space-y-3.5 text-base font-body text-gray-700 leading-relaxed" id="content-asmara">
+<p>
+<strong>Bagi yang berpasangan:</strong> Getaran Venus hari ini mengajakmu untuk membicarakan ekspektasi yang selama ini tersimpan rapi. Hubungan yang sehat bukan tentang menghindari perdebatan demi kedamaian semu, melainkan kemampuan mendengar dengan empati dan merumuskan kompromi bersama.
+          </p>
+<p>
+<strong>Bagi yang single:</strong> Daya pikatmu memancar kuat melalui percakapan mendalam dan ketertarikan intelektual yang sama. Jangan tergesa-gesa menilai seseorang dari citra luarnya semata; berikan kesempatan pada mereka yang konsisten menghormati ruang pribadimu.
+          </p>
+</div>
+</section>
+<!-- Wavy Separator Accent -->
+<div class="w-full flex justify-center py-6">
+<img alt="Divider" class="w-48 sm:w-56 h-auto object-contain opacity-80 select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGAP-YyvR3hn0LmLshCOr3nY36DlWVcCwMVF3IaYg9aT1pjAqNjD8WOCSs_eRxL9lCuC0AlmW38HFf6Es35G5boqz2dVFPfxEcZxwSmqlliaBNfoJpPi800mKCy0NLPIWzZkAXIctiSS4tSCwY9Pte6Vw-2wObDD5Jd1GW_2muq7ORAQNT5N0CsLhuRMJOYNlufuHnaYFzMUYLPIjX_Pqnv_ZxLcrRwxsrITji3ZeU0fPrFiSR9zzpctdxJTiOLV2lobT2O6XbCFj1c6Y"/>
+</div>
+<!-- SECTION 3: KEUANGAN (Keuangan & Alokasi) -->
+<section class="py-4 sm:py-6 max-w-3xl mx-auto space-y-4">
+<h3 class="text-2xl sm:text-3xl font-heading text-brand-charcoal leading-snug">
+          Keuangan: Keseimbangan Antara Kebutuhan dan Keinginan Estetik
+        </h3>
+<div class="space-y-3.5 text-base font-body text-gray-700 leading-relaxed" id="content-keuangan">
+<p>
+            Kondisi finansial berada pada jalur yang cukup stabil, namun hasratmu untuk mempercantik hunian atau berbelanja barang bernilai seni tinggi sedang meningkat. Berikan waktu jeda 24 jam sebelum melakukan transaksi impulsif untuk memastikan barang tersebut benar-benar esensial.
+          </p>
+<p>
+            Ini adalah saat yang tepat untuk menata kembali portofolio tabungan atau dana darurat. Prioritaskan instrumen keuangan berisiko rendah yang memberikan ketenangan jangka panjang bagi rencana finansialmu.
+          </p>
+</div>
+</section>
+<!-- Wavy Separator Accent -->
+<div class="w-full flex justify-center py-6">
+<img alt="Divider" class="w-48 sm:w-56 h-auto object-contain opacity-80 select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-nOkf4hImJOf5t_8qxq4gSU_LeXHtgnU6anYcq0VNtZik04P2IGw10Niac_L_5-O6gkkM4MkQhE5rvvHKwtNeZlWxPGAsXKOBHLFqmsld8E9nEhnEaOAc69tNYu9e5r-7AP_qj4XrI_vDzxCgtzCFFvBLKnqJLTF-IKcZPe4e2wEftDoiEhfAdNvpZY1m9PcW-T-Gz-pezng6ohk-4x-wMUQQRr438HagSC-q20D471y4CIW_inWoTY773DJ_lB-Efj-A2GA77v2Wy9U"/>
+</div>
+<!-- SECTION 4: KESEHATAN (Kesehatan & Kebugaran Mental) -->
+<section class="py-4 sm:py-6 max-w-3xl mx-auto space-y-4">
+<h3 class="text-2xl sm:text-3xl font-heading text-brand-charcoal leading-snug">
+          Kesehatan: Rawat Keseimbangan Postur dan Kualitas Tidur
+        </h3>
+<div class="space-y-3.5 text-base font-body text-gray-700 leading-relaxed" id="content-kesehatan">
+<p>
+            Area tubuh yang dinaungi Libra berfokus pada ginjal, punggung bawah, dan keseimbangan cairan tubuh. Pastikan asupan air putihmu mencukupi, terutama bila kamu menghabiskan sebagian besar waktu duduk di depan layar komputer.
+          </p>
+<p>
+            Untuk kesehatan mental, ritual hening seperti journaling sebelum tidur atau peregangan ringan (stretching) akan sangat membantu meredakan ketegangan saraf setelah seharian berinteraksi sosial dengan ritme tinggi.
+          </p>
+</div>
+</section>
+</article>
+<!-- SECTION 5: SWAP SIGNS ZODIAC PICKER -->
+<section class="mt-10 sm:mt-16 w-full rounded-3xl p-4 sm:p-10 lg:p-12 bg-white/50 backdrop-blur-sm border border-pink-100 shadow-[0_12px_40px_rgba(220,44,103,0.05)]">
+<div class="rounded-3xl p-4 sm:p-10 flex flex-col lg:flex-row items-center lg:items-stretch gap-6 sm:gap-8 lg:gap-12 relative overflow-hidden">
+<div class="w-full lg:w-64 shrink-0 flex items-center justify-center">
+<div class="relative w-full flex items-center justify-center transform -rotate-2 hover:scale-105 hover:rotate-0 transition-all duration-300 cursor-pointer py-3 max-w-[260px]">
+<img alt="Paper Scrap Backdrop" class="w-56 sm:w-64 h-auto object-contain drop-shadow-md pointer-events-none select-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgcoS7U9ZJSHZJzDSDPGKGDSKAqzLzuEOJu4TRYLmQPCPgUR86-Hj7etJH0v7fcYoXd1vHi1lKjOJSzQGJ4jfAcqvCPxT1zJ0Yo11cxsbuuZci386RiY8Oi3FzKeYsKpMdwDI-UoFta34fBFwHsAsLZlP1y6si4ktBDBz9Y04kEkpxfsoli95Ax03DhFtbqOlA-K3iH_xd80MJW7Yo5vLMY6k4hWweyLTWIP5E3vq4yWjFn8GQZSH3LA"/>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none pt-3">
+<span class="text-4xl sm:text-5xl text-brand-pink font-serifDisplay italic leading-tight">Swap</span>
+<span class="text-4xl sm:text-5xl text-brand-charcoal font-serifDisplay italic leading-tight -mt-2">signs</span>
+</div>
+</div>
+</div>
+<div class="flex-1 w-full grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-6 items-center">
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Aries" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYviq09P6sJVRacxEEQTffA53mmstCy41dya7yDvoBS_2p_9-XAVWwsMyKbgAa4gaGMgc3S8j1oq9OcHu8HWjhir8ASXQnz-pmavpS2hfN6Q-4iT-gwzqLHFrRXOqEURGRQhxY-VXlTTCm4hV0my-LShNQj5uqzzg0D7T_tTx3JqBp3ZcOZfiiePqgxIp11hpacBTG4MH7nEu3jSz8-Rm92TicZfioWzllxsNL59LPo0eqKmfQ3O20DA"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">ARIES</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Taurus" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8W7zXW8jso3Xt2JiU2ESvIz8p87T2kqLUyVHLkosuHBcc6qGRgYd9bD3QgL3blpLkg7QZ8Qzg05nyJHqza_rq46fdHbL-2iWfRGDnwC71PxLNaU3To78p31xLOBuZSmKLqJi2ZxakUYKmKxMM14LJFxypw2UEaJMI37NMba2RLv8jIjSMY0Kg7tcFeKYMZRx8Om4HTuIdXp43Q7box1yzfhrZvnSk6p8O2Vu4oNe89oUfRJJ7-T-2kA"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">TAURUS</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Gemini" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQDAFLA5vGyob_XPAOT5GZSlVhHdRBoZfnm_QtuQKxC2UnNFCaw0HMcRvzr7XEfX1cIzINJDyLCFuk8i_sOiLAJtEpQa6uvq_OYRTSojkY2yHAG5ffgtC0FR1ZLMB84KCaI6Mnn9HuXuNVLWQ8qlc674QDLTJnVKK1semvxvUsQKvytuH_O_I9viLiinx4p1wLIGKNJBh9-pMrl0r-xtGhUCVY4R4E-S0q2oE9ji17qbziD3X63AXyIg"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">GEMINI</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Cancer" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUpUsoeE8W1RtcPinOiF7csXONtx6n8ofKp7hzgo8NmItC14q1TDqwgnDY7fVK7hFEr4CxkRentWxYpm3akC_poflAZkCawkuwWsahBUDSkujaxbmWslIyELMzNp-CM8tNn1G-XB6-KsBSz_pSyG-8ZrlfTlIJT3neaTc6tv53svU4rHwIEQ8PM3R773o2lp6uwdux7PnFDcZIw4SS1oe424eFeNCotRaPH8IZgJuTmsdJovFv4nia3A"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">CANCER</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Leo" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEjoFj64IIvIbHQpOwFLtLro5M4t-BZXX7oQIXc4WnGNbAmonXXY9rWM7OWVgFv4HmQoGBETH1MztRS5LQLA8KAEn8qvnMIp6VbMbkvAJY4PhMQqKJibVSy6eibsTnETLeAxJttlIveg_hpcPoJdet5WeHr_DxQk2GQ3Oo4kz0p5loA8fr7h77zvtbkwD4XzoO7DbsKZkZEnF9-afDd0tVkgIfrFNeF5_cmm07hm_iGPjh5ZtqHng2Rw"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">LEO</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Virgo" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOHL2mk_07aZAv4YTNhn7PQX_963_8W7_GPnSCPwexDGJE7pJBWT9-vZIoJ3u27irWTxoDV9yWPxm-798j5y134pgq52LTOq61llOsadg8dHo4TLwkkzdrNP2jUsEtuU8zQNss7avH6zbVNFAKIs1rxleQIc_zdAEoRdRp9U98j1tbZqbfp3AGy-eGhboqBAFurSg-JK159oocm5fkfGhCXFyCC3ubPLqCFCphsIjkAtcvTb7rnbyZig"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">VIRGO</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Scorpio" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmTeqyhBSbe_FrEt9ySo81yF7NPvugJcI6bTNeOFLALEzrUoV4IP009r8kxcHaP85n0gGRTYo7TzGT-BeR81Aw7l5bQGzURew2KZr8XJbmX3Oyuo2s-2IvtP0B0lcekr43ApwPB14m5Frw8ezwbOkT-6PyfphGPLA3joS4LeGi1RAahOZzBLksXQmWThR7t1wQGq1E35FZdnK91YgxMRxNzbecrrDCRG1GhTagNF-_02fs7PUsAqQWUg"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">SCORPIO</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Sagittarius" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOdj06Kr-MNro32FcAErZQgKLBRcJBe0fKpJsm8_6o-sQLV61vRaPNiYzu9DCpdkPQbKYWDJmn3JdZnsx7LiIa-m6c1YaFnPJMpsKSzg3bokeLh0lWtp3okLMwzICoAoXGNNN0kJFYownwI7Zl3BQPkewy2XKm0RK110u40J2H5-Qru-yj9tqLVytXB7uWmJRnnTf0bzgAS37cJievl5S5lfhAoIvVx0hl7kqaEFYt0CF_D48V_mCG6w"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">SAGITTARIUS</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Capricorn" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyrRt8hVxQ6P7O05cI9zPM_kl0rgGO7NqZDlsqI5fszBc19s0LxfCFiV1LDHr-9W4FA0uYLzSuZsaZuh2T4ndIEQbV5ZNMC-830XctzF8Uqm9nzxgCAOGWz0v0_obghBEn0wsnE4WVXwIpeEAKbYzazQYN8rkCAVLPd77r2rW-U153ee1aX8i3BRIwiyThV6MX019ptyUZW-JOonTVqOepPSHzUd9PcE-uBws9ELIUf00TKBmxK7nhgw"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">CAPRICORN</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Aquarius" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtNkm0pX4QBOqccDwXhGn1qp_wxX5wY0CJPcL6yj2IO25-nCBMDGXsj2TLEAQ6qjqZ6UcqVmHqEySsrl0gbcMv9bOwpabc8-sSDHOUbNntVA9vQseiVF9eudjSKxoI8c8Z7xma3gIy05DWe0VzUkxWfQ7c4S_bSXkIgSlhAVPiadJlDJYyduAuNYsSrMQJEw178q7rQ_oFzCcTu1oNJaXNg0-o3uYBTjUEI4QpUrhSKv15iyLoXPTMSQ"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">AQUARIUS</span>
+</a>
+<a class="group flex flex-col items-center justify-center p-2 sm:p-3 text-center cursor-pointer transition-transform duration-200 hover:scale-105" href="javascript:void(0)">
+<div class="w-14 h-14 sm:w-20 sm:h-20 flex items-center justify-center mb-1.5 sm:mb-2 transition-transform duration-200 group-hover:scale-110">
+<img alt="Pisces" class="max-w-full max-h-full object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlEu6ywk7tdUQ6Yr_f3FH5sE6mJ_0cKDJLrRh7J1WecShhar6K_AXPPiCbXHz9hYA13f1nvZQeFjTMCjHhrW-c43-QJw9dwcEXh-UVnpnwWhjW1N0J1EDT2BQbGFmQMqQIiXBfdlVqA6qRWS8V86IU46Zos9b6-oWrRtdttNdNjSxBM9dF-l48Vgl9-if208FvDHf41CcRE8PWrVv1jVhDWRaUyToySHdBJ2TmSaSYWHUBPR7HAd6mag"/>
+</div>
+<span class="text-[11px] sm:text-xs md:text-sm font-label font-bold text-gray-700 tracking-wider group-hover:text-brand-pink uppercase transition-colors">PISCES</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- INTERACTIVE CLIENT JAVASCRIPT FOR PERIOD SWITCHING -->
+<script>
+    // Data store for the 5 periods
+    const periodData = {
+      today: {
+        badge: "PERIODE AKTIF: HARI INI",
+        dateDisplay: "Kamis, 29 Oktober 2026",
+        author: "Tim Astrologi kumparanWOMAN",
+        updated: "Diperbarui 29 Oktober 2026, 06:00 WIB",
+        asmara: `
+          <p><strong>Bagi yang berpasangan:</strong> Getaran Venus hari ini mengajakmu untuk membicarakan ekspektasi yang selama ini tersimpan rapi. Hubungan yang sehat bukan tentang menghindari perdebatan demi kedamaian semu, melainkan kemampuan mendengar dengan empati dan merumuskan kompromi bersama.</p>
+          <p><strong>Bagi yang single:</strong> Daya pikatmu memancar kuat melalui percakapan mendalam dan ketertarikan intelektual yang sama. Jangan tergesa-gesa menilai seseorang dari citra luarnya semata; berikan kesempatan pada mereka yang konsisten menghormati ruang pribadimu.</p>
+        `,
+        keuangan: `
+          <p>Kondisi finansial berada pada jalur yang cukup stabil, namun hasratmu untuk mempercantik hunian atau berbelanja barang bernilai seni tinggi sedang meningkat. Berikan waktu jeda 24 jam sebelum melakukan transaksi impulsif untuk memastikan barang tersebut benar-benar esensial.</p>
+          <p>Ini adalah saat yang tepat untuk menata kembali portofolio tabungan atau dana darurat. Prioritaskan instrumen keuangan berisiko rendah yang memberikan ketenangan jangka panjang bagi rencana finansialmu.</p>
+        `,
+        kesehatan: `
+          <p>Area tubuh yang dinaungi Libra berfokus pada ginjal, punggung bawah, dan keseimbangan cairan tubuh. Pastikan asupan air putihmu mencukupi, terutama bila kamu menghabiskan sebagian besar waktu duduk di depan layar komputer.</p>
+          <p>Untuk kesehatan mental, ritual hening seperti journaling sebelum tidur atau peregangan ringan (stretching) akan sangat membantu meredakan ketegangan saraf setelah seharian berinteraksi sosial dengan ritme tinggi.</p>
+        `
+      },
+      tomorrow: {
+        badge: "PERIODE AKTIF: BESOK",
+        dateDisplay: "Jumat, 30 Oktober 2026",
+        author: "Tim Astrologi kumparanWOMAN",
+        updated: "Diperbarui 29 Oktober 2026, 18:30 WIB",
+        asmara: `
+          <p><strong>Bagi yang berpasangan:</strong> Suasana akhir pekan yang kian dekat membawa energi romantis yang lebih santai. Rencanakan kencan sederhana di tempat yang tenang agar kalian bisa menikmati kebersamaan tanpa distraksi gawai.</p>
+          <p><strong>Bagi yang single:</strong> Seseorang dari lingkaran pertemanan profesional mungkin menunjukkan perhatian ekstra. Sambutlah dengan ramah tanpa perlu merasa terbebani untuk segera memberi kepastian.</p>
+        `,
+        keuangan: `
+          <p>Akan ada tawaran promo akhir pekan yang cukup menggoda. Buat batasan anggaran pengeluaran hiburan sejak awal agar arus kas tidak terganggu menjelang awal bulan.</p>
+          <p>Aliran dana masuk dari komisi atau pekerjaan lepas kedua mulai menunjukkan kejelasan jadwal transfer.</p>
+        `,
+        kesehatan: `
+          <p>Kualitas tidur di malam hari menjadi kunci stamina besok. Kurangi konsumsi kafein di atas pukul dua siang dan luangkan waktu untuk berjalan kaki santai di ruang terbuka hijau.</p>
+          <p>Lakukan peregangan leher dan bahu setiap dua jam sekali untuk mencegah kekakuan otot.</p>
+        `
+      },
+      week: {
+        badge: "PERIODE AKTIF: MINGGU INI",
+        dateDisplay: "Senin – Minggu, 26 Okt – 1 Nov 2026",
+        author: "Tim Astrologi kumparanWOMAN",
+        updated: "Diperbarui 26 Oktober 2026, 08:00 WIB",
+        asmara: `
+          <p><strong>Bagi yang berpasangan:</strong> Sepanjang minggu ini, dinamika hubungan diuji oleh kesibukan masing-masing. Kuncinya adalah saling memberi apresiasi atas pencapaian pasangan dan menjaga waktu berkualitas di akhir pekan.</p>
+          <p><strong>Bagi yang single:</strong> Aura sosialmu sedang berada di titik puncak. Pertemuan di acara komunitas seni atau jejaring karier berpotensi membuka lembaran perkenalan baru yang bermakna.</p>
+        `,
+        keuangan: `
+          <p>Tinjau kembali langganan bulanan otomatis (subscription) yang jarang terpakai. Penghematan kecil yang dilakukan secara teratur akan memperkuat alokasi dana liburan akhir tahun.</p>
+          <p>Peluang kolaborasi berbayar sampingan terbuka lebar, terutama yang berhubungan dengan penulisan, desain, atau konsultasi hubungan publik.</p>
+        `,
+        kesehatan: `
+          <p>Fluktuasi cuaca menuntutmu untuk menjaga daya tahan tubuh secara konsisten. Tingkatkan asupan sayuran hijau, buah bervitamin C, serta cukupi istirahat di malam hari.</p>
+          <p>Latihan yoga atau pilates seminggu dua kali sangat disarankan untuk menjaga kelenturan tulang belakangmu.</p>
+        `
+      },
+      month: {
+        badge: "PERIODE AKTIF: BULAN INI",
+        dateDisplay: "Oktober – November 2026",
+        author: "Tim Astrologi kumparanWOMAN",
+        updated: "Diperbarui 1 Oktober 2026, 07:00 WIB",
+        asmara: `
+          <p><strong>Bagi yang berpasangan:</strong> Bulan kelahiran dan musim transisi ini membawa babak baru dalam komitmen cinta. Pembicaraan mengenai rencana jangka panjang keluarga atau investasi bersama akan berjalan harmonis.</p>
+          <p><strong>Bagi yang single:</strong> Bulan ini adalah momen emas untuk menyembuhkan luka masa lalu. Ketika kamu berdamai dengan dirimu sendiri, kamu akan menarik figur pasangan yang seimbang dan matang secara emosional.</p>
+        `,
+        keuangan: `
+          <p>Arus kas bulanan bergerak positif dengan adanya bonus performa atau pelunasan piutang lama. Gunakan momentum ini untuk melunasi kewajiban finansial jangka pendek.</p>
+          <p>Pertimbangkan untuk mulai berinvestasi pada pelatihan keahlian baru yang dapat meningkatkan nilai jual profesionalmu di masa depan.</p>
+        `,
+        kesehatan: `
+          <p>Perhatikan ritme kerja agar tidak berujung pada kelelahan kronis (burnout). Luangkan satu hari penuh di akhir pekan khusus untuk detoks digital dan pemulihan mental.</p>
+          <p>Periksakan kondisi kesehatan rutin jika kamu sering mengalami ketegangan pada punggung bawah atau kram otot.</p>
+        `
+      },
+      year: {
+        badge: "PERIODE AKTIF: TAHUN INI",
+        dateDisplay: "Tahun 2026 — Tahun Keseimbangan & Pertumbuhan",
+        author: "Tim Astrologi kumparanWOMAN",
+        updated: "Diperbarui Januari 2026, 09:00 WIB",
+        asmara: `
+          <p><strong>Bagi yang berpasangan:</strong> Tahun 2026 menandai penguatan fondasi hubungan menuju tahap yang lebih matang. Berbagai ujian adaptasi yang berhasil dilewati bersama akan menjadi jangkar cinta yang kokoh.</p>
+          <p><strong>Bagi yang single:</strong> Tahun ini membuka peluang besar untuk menemukan belahan jiwa yang selaras dengan nilai-nilai hidup dan visi masa depanmu.</p>
+        `,
+        keuangan: `
+          <p>Kestabilan finansial tahun 2026 didukung oleh diversifikasi sumber pendapatan. Rencana pembelian aset berharga seperti hunian atau kendaraan dapat terealisasi dengan perencanaan terukur.</p>
+          <p>Tetap disiplin mematuhi rencana anggaran tahunan dan jangan tergiur skema investasi kilat tanpa izin resmi.</p>
+        `,
+        kesehatan: `
+          <p>Kesehatan holistik menjadi prioritas utama sepanjang tahun. Membangun rutinitas olahraga teratur dan pola makan sehat alami akan menjaga vitalitas energimu tetap prima.</p>
+          <p>Seimbangkan antara ambisi karier dengan waktu istirahat berkualitas bersama orang-orang terkasih.</p>
+        `
+      }
+    };
+
+    function switchPeriod(periodKey) {
+      const data = periodData[periodKey];
+      if (!data) return;
+
+      // 1. Update UI tabs cleanly without scroll jumping
+      const tabs = document.querySelectorAll('.period-tab');
+      tabs.forEach(tab => {
+        tab.classList.remove('bg-[#DC2C67]', 'text-white', 'font-bold', 'shadow-sm', 'border-[#DC2C67]');
+        tab.classList.add('font-semibold', 'text-gray-800', 'border', 'border-dashed', 'border-[#DC2C67]/40', 'bg-white');
+        tab.setAttribute('aria-selected', 'false');
+      });
+
+      const activeBtn = document.getElementById('tab-' + periodKey);
+      if (activeBtn) {
+        activeBtn.classList.remove('font-semibold', 'text-gray-800', 'border-dashed', 'border-[#DC2C67]/40', 'bg-white');
+        activeBtn.classList.add('bg-[#DC2C67]', 'text-white', 'font-bold', 'shadow-sm', 'border-[#DC2C67]');
+        activeBtn.setAttribute('aria-selected', 'true');
+      }
+
+      // 2. Update Top Metadata in Content Component
+      const dateElem = document.getElementById('period-date-display');
+      const updatedElem = document.getElementById('updated-display');
+
+      if (dateElem) dateElem.textContent = data.dateDisplay;
+      if (updatedElem) updatedElem.textContent = data.updated;
+
+      // 3. Update Body Sections Content
+      const asmaraElem = document.getElementById('content-asmara');
+      const keuanganElem = document.getElementById('content-keuangan');
+      const kesehatanElem = document.getElementById('content-kesehatan');
+
+      if (asmaraElem) asmaraElem.innerHTML = data.asmara;
+      if (keuanganElem) keuanganElem.innerHTML = data.keuangan;
+      if (kesehatanElem) kesehatanElem.innerHTML = data.kesehatan;
+    }
+  </script>
+</body></html>
